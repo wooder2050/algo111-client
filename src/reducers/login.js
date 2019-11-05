@@ -1,0 +1,27 @@
+const initialState = {
+  authenticated: false,
+  userName: null,
+  userPictureUrl: null,
+  userLevel: 0,
+  userPoint: 0
+};
+
+function loginReducers(state = initialState, action) {
+  switch (action.type) {
+    case "LOGIN_SUCCESS":
+      return Object.assign(
+        { ...state },
+        {
+          authenticated: true,
+          userName : action.responseJson.userInfo.name,
+          userPictureUrl: action.responseJson.userInfo.picture,
+          userLevel : action.responseJson.userInfo.level,
+          userPoint : action.responseJson.userInfo.pooint
+        }
+      );
+    default:
+      return state;
+  }
+}
+
+export default loginReducers;

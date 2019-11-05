@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Noto+Sans+KR|Roboto&display=swap");
+$color1: #3e425c;
+$color2: #b0b1c5;
+$color3: #dee4f1;
+$color4: #dee4f1;
+$color5: #f62828;
+$color6: #268f68;
+$color7: #2b31ac; 
+
+.header-wrapper {
+  font-family: "Roboto", "Noto Sans KR", sans-serif;
+  position: fixed;
+  z-index: 997;
+  width: 100%;
+  height: 70px;
+  background: $color7;
+  .hamburg-btn-wrapper {
+    float: left;
+    width: 30px;
+    margin: 20px 0 0 40px;
+    .hamburg-btn {
+      width: 100%;
+      cursor: pointer;
+    }
+  }
+}
+.logo-wrapper {
+  float: left;
+  margin: 10px 0 0 40px;
+  .header-logo {
+    font-family: "Open Sans", sans-serif;
+    letter-spacing: 2px;
+    text-decoration: none;
+    color: $color4;
+    font-size: 32px;
+    margin: 0;
+  }
+}
+.user-info-wrapper {
+  width: 180px;
+  margin: 10px 0 0 0;
+  float: right;
+  .user-name {
+    float: left;
+    font-size: 12px;
+    font-weight: 100;
+    padding: 15px 10px 0 0;
+    color: $color4;
+    cursor: pointer;
+    strong {
+      font-weight: bold;
+      font-size: 14px;
+    }
+  }
+  .user-picture-wrapper {
+    float: right;
+    width: 50px;
+    cursor: pointer;
+    .user-picture {
+      width: 100%;
+      border-radius: 50%;
+    }
+  }
+}
+.user-info-wrapper::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.logout {
+  width: 100px;
+  text-align: center;
+  background: $color4;
+  border-radius: 5px;
+  padding: 5px 0;
+  float: right;
+  font-size: 16px;
+  margin: 20px;
+  cursor: pointer;
+  a {
+    font-weight: bold;
+    text-decoration: none;
+    color: $color1;
+  }
+}
+.logout:hover {
+  background: $color2;
+  a:hover {
+    color: $color4;
+  }
+}
+
+.header-wrapper::after {
+  content: "";
+  display: block;
+  clear: both;
+}

@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Noto+Sans+KR|Roboto&display=swap");
+$color1: #3e425c;
+$color2: #b0b1c5;
+$color3: #dee4f1; 
+$color4: #ffffff;
+
+.problem-wrapper {
+  width: 100%;
+  height: 100vh;
+  background: $color3;
+  box-sizing: border-box;
+  padding: 70px 0 0 100px;
+  .problem-description-wrapper {
+    box-sizing: border-box;
+    background: $color4;
+    padding: 20px;
+    float: left;
+    width: 50%;
+    height: 100vh;
+    .problem-description {
+      width: 80%;
+      color: $color1;
+      margin: 0 auto;
+      border-radius: 20px;
+      box-sizing: border-box;
+      padding: 20px;
+      background: $color3;
+      border: 1px solid $color1;
+    }
+  }
+  .problem-solving-space-wrapper {
+    float: left;
+    width: 50%;
+    height: 100vh;
+    background: $color4;
+    box-sizing: border-box;
+    padding: 20px;
+  }
+}
+.problem-wrapper::after {
+  content: '';
+  display: block;
+  clear: both;
+}
