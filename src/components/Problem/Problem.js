@@ -5,13 +5,10 @@ import Editor from "../Editor/Editor";
 class Problem extends Component {
   componentDidMount() {
     if (this.props.routrProps.match.params.level) {
-      console.log(this.props.routrProps.match.params.level);
       this.props.problemOnLoad(this.props.routrProps.match.params.level);
     }
   }
   render() {
-    console.log(this.props.problemInfo);
-    console.log(this.props.routrProps.match.params.level);
     return (
       <div
         onClick={this.props.closeSideProblemModal}
@@ -69,11 +66,14 @@ class Problem extends Component {
         </div>
         <div className="problem-solving-space-wrapper">
           <Editor
-            submitCode={this.props.submitCode}
+            checkCode={this.props.checkCode}
+            scoreCode={this.props.scoreCode}
             level={this.props.routrProps.match.params.level}
             problem={
               this.props.problemInfo ? this.props.problemInfo.problem : null
             }
+            problemCheck={this.props.problemCheck}
+            problemScore={this.props.problemScore}
           />
         </div>
       </div>

@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Noto+Sans+KR|Roboto&display=swap");
+$color1: #3e425c;
+$color2: #b0b1c5;
+$color3: #dee4f1;
+$color4: #ffffff;
+$color5: #f62828;
+$color6: #268f68;
+$color7: #2b31ac;
+$color8: #ffffff;
+
+.problem-result-wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: rgba(122, 114, 226, 0.1);
+  top: 0;
+  left: 0;
+  z-index: 2;
+  .problem-result-box {
+    position: relative;
+    width: 500px;
+    height: 700px;
+    margin: 200px auto;
+    background: $color4;
+    border-radius: 20px;
+    .problem-result-btn {
+      position: absolute;
+      top: 650px;
+      left: 200px;
+      width: 100px;
+      height: 30px;
+      background: $color7;
+      color: $color8;
+      text-align: center;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  }
+}

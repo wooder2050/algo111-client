@@ -1,6 +1,7 @@
 const initialState = {
   sideModal: false,
-  problemModal: false
+  problemModal: false,
+  problemResultModal: false
 };
 
 function modalReducers(state = initialState, action) {
@@ -13,7 +14,7 @@ function modalReducers(state = initialState, action) {
           problemModal: false
         }
       );
-      case "CLICK_SIDEPROBLEMMODAL":
+    case "CLICK_SIDEPROBLEMMODAL":
       return Object.assign(
         { ...state },
         {
@@ -21,12 +22,19 @@ function modalReducers(state = initialState, action) {
           problemModal: !action.state
         }
       );
-      case "CLOSE_SIDEPROBLEMMODAL":
+    case "CLOSE_SIDEPROBLEMMODAL":
       return Object.assign(
         { ...state },
         {
           sideModal: false,
           problemModal: false
+        }
+      );
+    case "PROBELM_SCORE":
+      return Object.assign(
+        { ...state },
+        {
+          problemResultModal: true
         }
       );
     default:

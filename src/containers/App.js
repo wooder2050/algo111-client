@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import App from "../components/App/App";
-import { loginAPI, submitCodeAPI, problemOnLoadAPI } from "../api";
+import { loginAPI, checkCodeAPI, problemOnLoadAPI, scoreCodeAPI } from "../api";
 import Auth from "../components/Auth";
 
 const mapStateToProps = state => {
@@ -12,8 +12,8 @@ const mapStateToProps = state => {
     userLevel,
     userPoint
   } = state.login;
-  const { sideModal, problemModal } = state.modal;
-  const { problemInfo } = state.problem;
+  const { sideModal, problemModal, problemResultModal } = state.modal;
+  const { problemInfo, problemCheck, problemScore } = state.problem;
 
   return {
     auth,
@@ -24,7 +24,10 @@ const mapStateToProps = state => {
     userPoint,
     sideModal,
     problemModal,
-    problemInfo
+    problemResultModal,
+    problemInfo,
+    problemCheck,
+    problemScore
   };
 };
 
@@ -50,8 +53,11 @@ const mapDispatchToProps = dispatch => {
         type: "CLOSE_SIDEPROBLEMMODAL"
       });
     },
-    submitCode(code, level) {
-      submitCodeAPI(dispatch, code, level);
+    checkCode(code, level) {
+      checkCodeAPI(dispatch, code, level);
+    },
+    scoreCode(code, level) {
+      scoreCodeAPI(dispatch, code, level);
     },
     problemOnLoad(level) {
       problemOnLoadAPI(dispatch, level);

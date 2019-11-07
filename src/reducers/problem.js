@@ -1,5 +1,7 @@
 const initialState = {
-  problemInfo: null
+  problemInfo: null,
+  problemCheck: null,
+  problemScore: null
 };
 
 function problemReducers(state = initialState, action) {
@@ -8,7 +10,21 @@ function problemReducers(state = initialState, action) {
       return Object.assign(
         { ...state },
         {
-          problemInfo : action.responseJson
+          problemInfo: action.responseJson
+        }
+      );
+    case "PROBELM_CHECK":
+      return Object.assign(
+        { ...state },
+        {
+          problemCheck: action.responseJson.result
+        }
+      );
+    case "PROBELM_SCORE":
+      return Object.assign(
+        { ...state },
+        {
+          problemScore: action.responseJson.result
         }
       );
     default:

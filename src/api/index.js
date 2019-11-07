@@ -24,9 +24,9 @@ export const loginAPI = (dispatch, userInfo) => {
   });
 };
 
-export const submitCodeAPI = (dispatch, code, level) => {
+export const checkCodeAPI = (dispatch, code, level) => {
   return new Promise(() => {
-    fetch("http://localhost:5000/problems", {
+    fetch("http://localhost:5000/problems/check", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -37,17 +37,46 @@ export const submitCodeAPI = (dispatch, code, level) => {
         code: code,
         level: level
       })
-    });
-    // .then(response => {
-    //   if (response.status === 200) return response.json();
-    //   throw new Error("failed to authenticate user");
-    // })
-    // .then(responseJson => {
-    //   dispatch({
-    //     type: "LOGIN_SUCCESS",
-    //     responseJson
-    //   });
-    // });
+    })
+      .then(response => {
+        if (response.status === 200 || response.status === 401)
+          return response.json();
+        throw new Error("failed to authenticate user");
+      })
+      .then(responseJson => {
+        dispatch({
+          type: "PROBELM_CHECK",
+          responseJson
+        });
+      });
+  });
+};
+
+export const scoreCodeAPI = (dispatch, code, level) => {
+  return new Promise(() => {
+    fetch("http://localhost:5000/problems/score", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Credentials": true
+      },
+      body: JSON.stringify({
+        code: code,
+        level: level
+      })
+    })
+      .then(response => {
+        if (response.status === 200 || response.status === 401)
+          return response.json();
+        throw new Error("failed to authenticate user");
+      })
+      .then(responseJson => {
+        dispatch({
+          type: "PROBELM_SCORE",
+          responseJson
+        });
+      });
   });
 };
 

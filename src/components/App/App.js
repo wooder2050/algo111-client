@@ -6,10 +6,12 @@ import Home from "../Home/Home";
 import SideHeader from "../Sideheader/SideHeader";
 import Header from "../Header/Header";
 import Problem from "../Problem/Problem";
+import ProblemResult from "../ProblemResult/ProblemResult";
 import "./App.scss";
 
 class App extends Component {
   componentDidMount() {
+    console.log("app ", localStorage.getItem("id_token"));
     if (localStorage.getItem("id_token")) {
       let user_info = jwtDecode(localStorage.getItem("id_token"));
       if (user_info.name !== this.props.userName) {
@@ -62,13 +64,20 @@ class App extends Component {
           render={routrProps => (
             <Problem
               routrProps={routrProps}
-              submitCode={this.props.submitCode}
+              checkCode={this.props.checkCode}
+              scoreCode={this.props.scoreCode}
               problemOnLoad={this.props.problemOnLoad}
               closeSideProblemModal={this.props.closeSideProblemModal}
               problemInfo={this.props.problemInfo}
+              problemCheck={this.props.problemCheck}
+              problemScore={this.props.problemScore}
             />
           )}
-        ></Route>
+        >
+          {this.props.problemResultModal && (
+            <ProblemResult problemScore={this.props.problemScore} />
+          )}
+        </Route>
       </div>
     );
   }
