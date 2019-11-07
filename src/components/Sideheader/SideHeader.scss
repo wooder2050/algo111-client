@@ -1,16 +1,18 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans|Noto+Sans+KR|Roboto&display=swap");
-$color1: #3E425C;
+$color1: #3e425c;
 $color2: #a2bfbd;
-$color3: #DEE4F1;
-$color4: #DEE4F1;
+$color3: #dee4f1;
+$color4: #dee4f1;
 $color6: #268f68;
-$color7: #2b31ac; 
+$color7: #2b31ac;
+$color8: #ffffff;
+
 .side-header-wrapper {
   font-family: "Roboto", "Noto Sans KR", sans-serif;
   width: 100px;
   height: 100vh;
   position: fixed;
-  color: $color4;
+  color: $color8;
   background: $color7;
   padding: 80px 0 0 0;
   text-align: center;
@@ -30,7 +32,7 @@ $color7: #2b31ac;
     }
     .side-icon-text {
       width: 100%;
-      color: $color4;
+      color: $color8;
       margin: 5px 0;
       font-size: 12px;
       letter-spacing: 1px;
@@ -39,7 +41,7 @@ $color7: #2b31ac;
   .icon-wrapper-problem-mode {
     width: 100%;
     box-sizing: border-box;
-    background: $color3;
+    background: $color8;
     margin: 20px 0 20px 0;
     padding: 5px 0;
     text-align: center;
@@ -52,7 +54,7 @@ $color7: #2b31ac;
     }
     .side-icon-text {
       width: 100%;
-      color: $color1;
+      color: $color7;
       margin: 5px 0;
       font-size: 12px;
       letter-spacing: 1px;
@@ -65,7 +67,7 @@ $color7: #2b31ac;
   width: 180px;
   height: 100vh;
   position: fixed;
-  color: $color4;
+  color: $color8;
   background: $color7;
   padding: 80px 0 0 0;
   text-align: center;
@@ -75,6 +77,7 @@ $color7: #2b31ac;
     box-sizing: border-box;
     margin: 20px 0 20px 0;
     text-align: center;
+    border: 1px solid $color7;
     cursor: pointer;
     .icon-wrapper {
       display: block;
@@ -90,7 +93,7 @@ $color7: #2b31ac;
     .side-icon-text {
       float: left;
       width: 60%;
-      color: $color4;
+      color: $color8;
       text-align: left;
       margin: 20px 0px 0 0;
       font-size: 16px;
@@ -98,7 +101,7 @@ $color7: #2b31ac;
     }
   }
   .icon-wrapper-detail-mode:hover {
-    background: $color6;
+    background: rgba(255, 255, 255, 0.5);
   }
   .icon-wrapper-detail-mode::after {
     content: "";
@@ -106,32 +109,29 @@ $color7: #2b31ac;
     clear: both;
   }
 }
-.side-problem-wrapper {
-  background: $color3;
-  height: 100vh;
-  width: 200px;
+
+.side-problem-content-wrapper {
+  width: 280px;
   position: fixed;
   top: 0;
   left: 100px;
-  box-sizing: border-box;
-  padding: 80px 0 0 0;
+  height: 100vh;
+  overflow: hidden;
   z-index: 996;
-  .side-problem-level {
-    display: block;
-    width: 90%;
-    height: 60px;
-    margin: 10px auto;
-    background: $color7;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    color: $color4;
-    text-align: center;
+  box-shadow: 1px 1px 1px 1px rgba(204, 204, 204, 0.5);
+  .side-problem-wrapper {
+    background: $color3;
+    height: 100vh;
+    overflow-y: scroll;
+    width: 300px;
     box-sizing: border-box;
-    padding: 15px 0 0 0;
-    letter-spacing: 2px;
+    padding: 80px 0 0 0;
+    .side-problem-header {
+      font-size: 12px;
+      width: 80%;
+      margin: 10px auto;
+      color: $color1;
+      font-weight: bold;
+    }
   }
-  .side-problem-level:hover {
-    background: $color6;
-  } 
 }

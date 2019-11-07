@@ -31,6 +31,7 @@ class App extends Component {
               sideModal={this.props.sideModal}
             />
             <SideHeader
+              name={this.props.userName}
               clickSideProblemModal={this.props.clickSideProblemModal}
               sideModal={this.props.sideModal}
               problemModal={this.props.problemModal}
@@ -58,7 +59,15 @@ class App extends Component {
         <Route
           exact
           path="/level/:level"
-          render={routrProps => <Problem routrProps={routrProps} />}
+          render={routrProps => (
+            <Problem
+              routrProps={routrProps}
+              submitCode={this.props.submitCode}
+              problemOnLoad={this.props.problemOnLoad}
+              closeSideProblemModal={this.props.closeSideProblemModal}
+              problemInfo={this.props.problemInfo}
+            />
+          )}
         ></Route>
       </div>
     );

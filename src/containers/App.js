@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import App from "../components/App/App";
-import { loginAPI } from "../api";
+import { loginAPI, submitCodeAPI, problemOnLoadAPI } from "../api";
 import Auth from "../components/Auth";
 
 const mapStateToProps = state => {
@@ -13,6 +13,7 @@ const mapStateToProps = state => {
     userPoint
   } = state.login;
   const { sideModal, problemModal } = state.modal;
+  const { problemInfo } = state.problem;
 
   return {
     auth,
@@ -22,7 +23,8 @@ const mapStateToProps = state => {
     userLevel,
     userPoint,
     sideModal,
-    problemModal
+    problemModal,
+    problemInfo
   };
 };
 
@@ -42,6 +44,17 @@ const mapDispatchToProps = dispatch => {
         type: "CLICK_SIDEPROBLEMMODAL",
         state
       });
+    },
+    closeSideProblemModal() {
+      dispatch({
+        type: "CLOSE_SIDEPROBLEMMODAL"
+      });
+    },
+    submitCode(code, level) {
+      submitCodeAPI(dispatch, code, level);
+    },
+    problemOnLoad(level) {
+      problemOnLoadAPI(dispatch, level);
     }
   };
 };

@@ -16,7 +16,7 @@ class Header extends Component {
         </div>
         <div className="logo-wrapper">
           <Link className="header-logo" to="/">
-            ALGO111
+            ALGOIII
           </Link>
         </div>
         <div className="logout">

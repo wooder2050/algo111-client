@@ -1,8 +1,12 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans|Noto+Sans+KR|Roboto&display=swap");
 $color1: #3e425c;
 $color2: #b0b1c5;
-$color3: #dee4f1; 
+$color3: #dee4f1;
 $color4: #ffffff;
+$color5: #f62828;
+$color6: #268f68;
+$color7: #2b31ac;
+$color8: #ffffff;
 
 .problem-wrapper {
   width: 100%;
@@ -20,12 +24,45 @@ $color4: #ffffff;
     .problem-description {
       width: 80%;
       color: $color1;
-      margin: 0 auto;
+      margin: 20px auto 0 auto;
       border-radius: 20px;
       box-sizing: border-box;
       padding: 20px;
       background: $color3;
-      border: 1px solid $color1;
+      box-shadow: 3px 3px 5px 6px rgba(204, 204, 204, 0.3);
+      .problem-title {
+        width: 100%;
+        margin: 0 0 40px 0;
+        .problem-title-main {
+          float: left;
+          font-size: 32px;
+          margin: 0 20px 0 0;
+        }
+        .problem-title-level {
+          float: left;
+          background: $color1;
+          margin: 10px 0 0 0;
+          color: $color8;
+          font-size: 12px;
+          font-weight: 100;
+          padding: 5px 10px;
+          border-radius: 10px;
+        }
+      }
+      .problem-title::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+      .problem-info {
+        font-weight: bold;
+        font-size: 18px;
+        margin: 0 0 10px 0;
+      }
+      .problem-info-description {
+        font-size: 14px;
+        margin: 0 0 30px 0;
+      }
     }
   }
   .problem-solving-space-wrapper {
@@ -34,11 +71,11 @@ $color4: #ffffff;
     height: 100vh;
     background: $color4;
     box-sizing: border-box;
-    padding: 20px;
+    padding: 40px 20px;
   }
 }
 .problem-wrapper::after {
-  content: '';
+  content: "";
   display: block;
   clear: both;
 }

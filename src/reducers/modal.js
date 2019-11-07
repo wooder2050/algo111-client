@@ -21,6 +21,14 @@ function modalReducers(state = initialState, action) {
           problemModal: !action.state
         }
       );
+      case "CLOSE_SIDEPROBLEMMODAL":
+      return Object.assign(
+        { ...state },
+        {
+          sideModal: false,
+          problemModal: false
+        }
+      );
     default:
       return state;
   }

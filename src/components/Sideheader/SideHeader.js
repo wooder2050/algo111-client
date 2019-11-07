@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
+import LevelBtn from "../LevelBtn/LevelBtn";
 import "./SideHeader.scss";
 import problem from "../../image/problem.png";
 import myPage from "../../image/mypage.png";
@@ -7,8 +8,6 @@ import problemMode from "../../image/problem-mode.png";
 
 class SideHeader extends Component {
   render() {
-    console.log(this.props.sideModal);
-    console.log(this.props.problemModal);
     return (
       <>
         {this.props.sideModal ? (
@@ -66,16 +65,22 @@ class SideHeader extends Component {
         )}
 
         {this.props.problemModal ? (
-          <div className="side-problem-wrapper">
-            <NavLink className="side-problem-level" to="/level/1">
-              LEVEL 1
-            </NavLink>
-            <NavLink className="side-problem-level" to="/">
-              LEVEL 1
-            </NavLink>
-            <NavLink className="side-problem-level" to="/">
-              LEVEL 1
-            </NavLink>
+          <div className="side-problem-content-wrapper">
+            <div className="side-problem-wrapper">
+              <div className="side-problem-header">
+                {this.props.name} 님을 위한 코스
+              </div>
+              <LevelBtn />
+              <LevelBtn />
+              <LevelBtn />
+              <LevelBtn />
+              <LevelBtn />
+              <LevelBtn />
+              <LevelBtn />
+              <LevelBtn />
+              <LevelBtn />
+              <LevelBtn />
+            </div>
           </div>
         ) : (
           <div></div>

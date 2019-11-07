@@ -3,45 +3,78 @@ import "./Problem.scss";
 import Editor from "../Editor/Editor";
 
 class Problem extends Component {
+  componentDidMount() {
+    if (this.props.routrProps.match.params.level) {
+      console.log(this.props.routrProps.match.params.level);
+      this.props.problemOnLoad(this.props.routrProps.match.params.level);
+    }
+  }
   render() {
+    console.log(this.props.problemInfo);
     console.log(this.props.routrProps.match.params.level);
     return (
-      <div className="problem-wrapper">
+      <div
+        onClick={this.props.closeSideProblemModal}
+        className="problem-wrapper"
+      >
         <div className="problem-description-wrapper">
           <div className="problem-description">
             <div className="problem-title">
-              LEVEL {this.props.routrProps.match.params.level} -Array
+              <div className="problem-title-main">
+                {this.props.problemInfo
+                  ? this.props.problemInfo.problem.title
+                  : ""}
+              </div>
+              <div className="problem-title-level">
+                LEVEL {this.props.routrProps.match.params.level}
+              </div>
             </div>
-            <div className="problem-title">문제</div>
-            <div className="problem-title">
-              N이 주어질 때, 다음과 같은 프로그램을 작성해보자.
+            <div className="problem-info">문제 설명</div>
+            <div className="problem-info-description">
+              {this.props.problemInfo
+                ? this.props.problemInfo.problem.description
+                : ""}
             </div>
-            <div className="problem-title">입력</div>
-            <div className="problem-title">
-              {`첫째 줄에 자연수 N이 주어진다.(1<=N<=100)`}
+            <div className="problem-info">제한 사항 & 입력</div>
+            <div className="problem-info-description">
+              {this.props.problemInfo
+                ? this.props.problemInfo.problem.Limitations
+                : ""}
             </div>
-            <div className="problem-title">입력 예제 </div>
-            <div className="problem-title">3</div>
-            <div className="problem-title">출력 예제 </div>
-            <div className="problem-title">
-              1 2 4<br />3 5<br /> 6
+            <div className="problem-info">입력 예제 </div>
+            <div className="problem-info-description">
+              {this.props.problemInfo
+                ? this.props.problemInfo.problem.input_example1
+                : ""}
             </div>
-            <div className="problem-title">입력 예제 </div>
-            <div className="problem-title">5</div>
-            <div className="problem-title">출력 예제 </div>
-            <div className="problem-title">
-              1 2 4 7 11
-              <br />3 5 8 12
-              <br /> 6 9 13
-              <br />
-              10 14
-              <br />
-              15
+            <div className="problem-info">출력 예제 </div>
+            <div className="problem-info-description">
+              {this.props.problemInfo
+                ? this.props.problemInfo.problem.output_example1
+                : ""}
+            </div>
+            <div className="problem-info">입력 예제 </div>
+            <div className="problem-info-description">
+              {this.props.problemInfo
+                ? this.props.problemInfo.problem.input_example2
+                : ""}
+            </div>
+            <div className="problem-info">출력 예제 </div>
+            <div className="problem-info-description">
+              {this.props.problemInfo
+                ? this.props.problemInfo.problem.output_example2
+                : ""}
             </div>
           </div>
         </div>
         <div className="problem-solving-space-wrapper">
-          <Editor />
+          <Editor
+            submitCode={this.props.submitCode}
+            level={this.props.routrProps.match.params.level}
+            problem={
+              this.props.problemInfo ? this.props.problemInfo.problem : null
+            }
+          />
         </div>
       </div>
     );
