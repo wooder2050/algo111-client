@@ -23,6 +23,21 @@ $color8: #ffffff;
     margin: 200px auto;
     background: $color4;
     border-radius: 20px;
+    .code-result-context-wrapper {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 20px;
+      color: $color1;
+      .red {
+        color: $color5;
+      }
+      .blue {
+        color: $color7;
+      }
+      .code-result-context-title {
+        font-weight: bold;
+      }
+    }
     .problem-result-btn {
       position: absolute;
       top: 650px;

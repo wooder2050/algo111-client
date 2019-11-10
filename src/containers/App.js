@@ -10,10 +10,18 @@ const mapStateToProps = state => {
     userName,
     userPictureUrl,
     userLevel,
+    userStage,
     userPoint
   } = state.login;
   const { sideModal, problemModal, problemResultModal } = state.modal;
-  const { problemInfo, problemCheck, problemScore } = state.problem;
+  const {
+    problemInfo,
+    problemCheck,
+    problemScore,
+    finalCode,
+    submitTime,
+    storgeTime
+  } = state.problem;
 
   return {
     auth,
@@ -21,13 +29,17 @@ const mapStateToProps = state => {
     userName,
     userPictureUrl,
     userLevel,
+    userStage,
     userPoint,
     sideModal,
     problemModal,
     problemResultModal,
     problemInfo,
     problemCheck,
-    problemScore
+    problemScore,
+    finalCode,
+    submitTime,
+    storgeTime
   };
 };
 
@@ -56,11 +68,22 @@ const mapDispatchToProps = dispatch => {
     checkCode(code, level) {
       checkCodeAPI(dispatch, code, level);
     },
-    scoreCode(code, level) {
-      scoreCodeAPI(dispatch, code, level);
+    scoreCode(code, level, time) {
+      scoreCodeAPI(dispatch, code, level, time);
     },
-    problemOnLoad(level) {
-      problemOnLoadAPI(dispatch, level);
+    problemOnLoad(level, stage) {
+      problemOnLoadAPI(dispatch, level, stage);
+    },
+    closeResultModad() {
+      dispatch({
+        type: "CLOSE_RESULTMMODAL"
+      });
+    },
+    setStorgeTime(time) {
+      dispatch({
+        type: "SET_STORGETIME",
+        time
+      });
     }
   };
 };

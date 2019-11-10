@@ -1,7 +1,10 @@
 const initialState = {
   problemInfo: null,
   problemCheck: null,
-  problemScore: null
+  problemScore: null,
+  finalCode: null,
+  submitTime: null,
+  storgeTime: null
 };
 
 function problemReducers(state = initialState, action) {
@@ -24,7 +27,17 @@ function problemReducers(state = initialState, action) {
       return Object.assign(
         { ...state },
         {
-          problemScore: action.responseJson.result
+          problemScore: action.responseJson.result,
+          finalCode: action.responseJson.finalCode,
+          submitTime: action.responseJson.time
+        }
+      );
+    case "SET_STORGETIME":
+      return Object.assign(
+        { ...state },
+        {
+          storgeTime: action.time,
+          submitTime: null
         }
       );
     default:

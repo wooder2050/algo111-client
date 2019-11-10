@@ -9,7 +9,10 @@ class LevelBtn extends Component {
       width: `${per * 0.9}%`
     };
     return (
-      <NavLink className="side-problem-level" to="/level/1-1">
+      <NavLink
+        className="side-problem-level"
+        to={`/problems/1/${this.props.userStage}`}
+      >
         <div className="side-problem-level-title">LEVEL 1 기초다지기</div>
         <div className="side-problem-level-info">
           배열과 반복문을 이용합니다.

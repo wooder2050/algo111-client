@@ -70,16 +70,14 @@ class SideHeader extends Component {
               <div className="side-problem-header">
                 {this.props.name} 님을 위한 코스
               </div>
-              <LevelBtn />
-              <LevelBtn />
-              <LevelBtn />
-              <LevelBtn />
-              <LevelBtn />
-              <LevelBtn />
-              <LevelBtn />
-              <LevelBtn />
-              <LevelBtn />
-              <LevelBtn />
+              <LevelBtn userStage={this.props.userStage} />
+              <LevelBtn userStage={this.props.userStage} />
+              <LevelBtn userStage={this.props.userStage} />
+              <LevelBtn userStage={this.props.userStage} />
+              <LevelBtn userStage={this.props.userStage} />
+              <LevelBtn userStage={this.props.userStage} />
+              <LevelBtn userStage={this.props.userStage} />
+              <LevelBtn userStage={this.props.userStage} />
             </div>
           </div>
         ) : (

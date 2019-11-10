@@ -4,11 +4,18 @@ import Editor from "../Editor/Editor";
 
 class Problem extends Component {
   componentDidMount() {
+    console.log("problem did", this.props);
+    console.log(localStorage.getItem("transTime"));
     if (this.props.routrProps.match.params.level) {
-      this.props.problemOnLoad(this.props.routrProps.match.params.level);
+      this.props.problemOnLoad(
+        this.props.routrProps.match.params.level,
+        this.props.routrProps.match.params.stage
+      );
     }
   }
   render() {
+    console.log("render", this.props);
+    console.log("problem render", this.props.problemInfo);
     return (
       <div
         onClick={this.props.closeSideProblemModal}
@@ -74,6 +81,10 @@ class Problem extends Component {
             }
             problemCheck={this.props.problemCheck}
             problemScore={this.props.problemScore}
+            submitTime={this.props.submitTime}
+            time={this.props.time}
+            storgeTime={this.props.storgeTime}
+            setStorgeTime={this.props.setStorgeTime}
           />
         </div>
       </div>

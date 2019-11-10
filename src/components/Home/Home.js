@@ -1,10 +1,14 @@
 import React, { Component } from "react";
+import jwtDecode from "jwt-decode";
 import Login from "../Login/Login";
 import "./Home.scss";
 
 class Home extends Component {
   render() {
-    console.log("여기홈", this.props.authenticated);
+    if (!this.props.userName && localStorage.getItem("id_token")) {
+      let user_info = jwtDecode(localStorage.getItem("id_token"));
+      this.props.onLoad(user_info);
+    }
     return (
       <div className="home-main">
         {this.props.authenticated ? (

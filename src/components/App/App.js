@@ -11,15 +11,18 @@ import "./App.scss";
 
 class App extends Component {
   componentDidMount() {
-    console.log("app ", localStorage.getItem("id_token"));
     if (localStorage.getItem("id_token")) {
       let user_info = jwtDecode(localStorage.getItem("id_token"));
-      if (user_info.name !== this.props.userName) {
-        this.props.onLoad(user_info);
-      }
+      this.props.onLoad(user_info);
     }
   }
+
   render() {
+    var time = 0;
+    console.log(Number(localStorage.getItem("submitTime")));
+    if (Number(localStorage.getItem("submitTime")) > 0) {
+      time = Number(localStorage.getItem("submitTime"));
+    }
     console.log(this.props);
     return (
       <div className="app">
@@ -34,6 +37,7 @@ class App extends Component {
             />
             <SideHeader
               name={this.props.userName}
+              userStage={this.props.userStage}
               clickSideProblemModal={this.props.clickSideProblemModal}
               sideModal={this.props.sideModal}
               problemModal={this.props.problemModal}
@@ -60,10 +64,11 @@ class App extends Component {
         </Route>
         <Route
           exact
-          path="/level/:level"
+          path="/problems/:level/:stage"
           render={routrProps => (
             <Problem
               routrProps={routrProps}
+              userStage={this.props.userStage}
               checkCode={this.props.checkCode}
               scoreCode={this.props.scoreCode}
               problemOnLoad={this.props.problemOnLoad}
@@ -71,11 +76,20 @@ class App extends Component {
               problemInfo={this.props.problemInfo}
               problemCheck={this.props.problemCheck}
               problemScore={this.props.problemScore}
+              submitTime={this.props.submitTime}
+              time={time}
+              storgeTime={this.props.storgeTime}
+              setStorgeTime={this.props.setStorgeTime}
             />
           )}
         >
           {this.props.problemResultModal && (
-            <ProblemResult problemScore={this.props.problemScore} />
+            <ProblemResult
+              problemScore={this.props.problemScore}
+              finalCode={this.props.finalCode}
+              submitTime={this.props.submitTime}
+              closeResultModad={this.props.closeResultModad}
+            />
           )}
         </Route>
       </div>

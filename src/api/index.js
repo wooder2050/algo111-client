@@ -25,6 +25,7 @@ export const loginAPI = (dispatch, userInfo) => {
 };
 
 export const checkCodeAPI = (dispatch, code, level) => {
+  console.log(code, level);
   return new Promise(() => {
     fetch("http://localhost:5000/problems/check", {
       method: "POST",
@@ -52,7 +53,8 @@ export const checkCodeAPI = (dispatch, code, level) => {
   });
 };
 
-export const scoreCodeAPI = (dispatch, code, level) => {
+export const scoreCodeAPI = (dispatch, code, level, time) => {
+  console.log("api ", time);
   return new Promise(() => {
     fetch("http://localhost:5000/problems/score", {
       method: "POST",
@@ -63,7 +65,8 @@ export const scoreCodeAPI = (dispatch, code, level) => {
       },
       body: JSON.stringify({
         code: code,
-        level: level
+        level: level,
+        time: time
       })
     })
       .then(response => {
@@ -80,9 +83,9 @@ export const scoreCodeAPI = (dispatch, code, level) => {
   });
 };
 
-export const problemOnLoadAPI = (dispatch, level) => {
+export const problemOnLoadAPI = (dispatch, level, stage) => {
   return new Promise(() => {
-    fetch(`http://localhost:5000/problems/${level}`, {
+    fetch(`http://localhost:5000/problems/${level}/${stage}`, {
       method: "GET",
       headers: {
         Accept: "application/json",

@@ -17,7 +17,9 @@ class Editor extends Component {
     this.state = {
       value: null,
       curTime: 0,
-      startTime: 0
+      startTime: 0,
+      paramsValue: 0,
+      prevTime: 0
     };
   }
   timerId = 0;
@@ -37,23 +39,14 @@ class Editor extends Component {
   };
 
   componentDidMount() {
-    if (this.props.problem) {
-      if (this.props.problem.parmasNumber === "2") {
-        var value = `function solution(n, m) {
-        //Your code here..
-        var answer = '';
-        return answer;
-      }`;
-        this.initializeEditor(value);
-      } else {
-        var value = `function solution(n) {
+    this.props.setStorgeTime(this.props.time);
+    var value = `function solution(n) {
           //Your code here..
           var answer = '';
           return answer;
         }`;
-        this.initializeEditor(value);
-      }
-    }
+    this.initializeEditor(value);
+
     const v = new Date().getTime();
     this.setState({ startTime: v });
 
@@ -72,44 +65,47 @@ class Editor extends Component {
   }
 
   handleChangeMarkdown = body => {
-    this.cursor = body.getCursor();
     this.setState({
       value: body.doc.getValue()
     });
   };
-
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (prevProps.markdown !== this.props.markdown) {
-  //     const { codeMirror, cursor } = this;
-
-  //     if (!codeMirror) return;
-  //     codeMirror.setValue(this.props.markdown);
-
-  //     if (!cursor) return;
-  //     codeMirror.setCursor(cursor);
-  //   }
-  // }
   render() {
-    var time = Math.floor((this.state.curTime - this.state.startTime) / 1000);
-    var minutesTime = 0;
-    var secondsTime = 0;
-    if (minutesTime <= 0 && time < 60) {
-      secondsTime = Math.floor(
-        (this.state.curTime - this.state.startTime) / 1000
-      );
-    } else {
-      minutesTime = Math.floor(
-        Math.floor((this.state.curTime - this.state.startTime) / 1000) / 60
-      );
-      secondsTime =
-        Math.floor((this.state.curTime - this.state.startTime) / 1000) -
-        minutesTime * 60;
+    console.log("edi ", this.props);
+    function timeFunc(curTime, startTime, submitTime, transTime) {
+      var time = Math.floor((curTime - startTime) / 1000);
+      if (submitTime) {
+        time += Number(submitTime);
+      } else if (transTime) {
+        time += transTime;
+      }
+      var minutesTime = 0;
+      if (Math.floor(time / 60) > 0) {
+        minutesTime = Math.floor(time / 60);
+      }
+      var secondsTime = 0;
+      if (time - minutesTime * 60 > 0) {
+        secondsTime = time - minutesTime * 60;
+      }
+      var timeArray = [];
+      timeArray.push(time, minutesTime, secondsTime);
+      return timeArray;
     }
+    var timeArray = timeFunc(
+      this.state.curTime,
+      this.state.startTime,
+      this.props.submitTime,
+      this.props.storgeTime
+    );
+    var time = timeArray[0];
+    var minutesTime = timeArray[1];
+    var secondsTime = timeArray[2];
+    localStorage.setItem("submitTime", time);
+    console.log(localStorage.getItem("submitTime"));
     return (
       <div className="editor-pane">
         <div className="time-table">
           <div className="timer-text">제한시간</div>
-          {secondsTime < 0 ? (
+          {secondsTime < 0 && this.props.problem ? (
             ""
           ) : (
             <div className="timer">
@@ -122,6 +118,8 @@ class Editor extends Component {
           반드시 <strong>함수</strong>를 활용하세요! <br />
           입력 값 = <strong>매개변수</strong>로, 출력 값 ={" "}
           <strong>함수의 리턴 값</strong>으로 활용하세요!
+          <br />
+          <strong>{this.props.problem ? this.props.problem.notice : ""}</strong>
         </div>
         <div
           className="code-editor"
@@ -163,10 +161,14 @@ class Editor extends Component {
           >
             실행
           </div>
-          <div onClick={e =>
-              this.props.scoreCode(this.state.value, this.props.level)
+          <div
+            onClick={e =>
+              this.props.scoreCode(this.state.value, this.props.level, time)
             }
-            className="code-btn-result">코드 채점하고 제출</div>
+            className="code-btn-result"
+          >
+            코드 채점하고 제출
+          </div>
         </div>
       </div>
     );

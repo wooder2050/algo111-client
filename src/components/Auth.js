@@ -69,5 +69,3 @@ export default class Auth {
     });
   }
 }
-
-
