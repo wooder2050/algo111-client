@@ -25,7 +25,6 @@ class Editor extends Component {
   timerId = 0;
   editor = null;
   codeMirror = null;
-  cursor = null;
 
   initializeEditor = value => {
     this.codeMirror = CodeMirror(this.editor, {
@@ -155,7 +154,11 @@ class Editor extends Component {
         <div className="code-btn-wrapper">
           <div
             onClick={e =>
-              this.props.checkCode(this.state.value, this.props.level)
+              this.props.checkCode(
+                this.state.value,
+                this.props.level,
+                this.props.stage
+              )
             }
             className="code-btn-execution"
           >
@@ -163,7 +166,13 @@ class Editor extends Component {
           </div>
           <div
             onClick={e =>
-              this.props.scoreCode(this.state.value, this.props.level, time)
+              this.props.scoreCode(
+                this.state.value,
+                this.props.level,
+                this.props.stage,
+                time,
+                this.props.userName
+              )
             }
             className="code-btn-result"
           >

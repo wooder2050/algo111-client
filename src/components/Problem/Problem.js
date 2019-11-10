@@ -74,8 +74,10 @@ class Problem extends Component {
         <div className="problem-solving-space-wrapper">
           <Editor
             checkCode={this.props.checkCode}
+            userName={this.props.userName}
             scoreCode={this.props.scoreCode}
             level={this.props.routrProps.match.params.level}
+            stage={this.props.routrProps.match.params.stage}
             problem={
               this.props.problemInfo ? this.props.problemInfo.problem : null
             }

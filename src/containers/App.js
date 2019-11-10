@@ -20,7 +20,8 @@ const mapStateToProps = state => {
     problemScore,
     finalCode,
     submitTime,
-    storgeTime
+    storgeTime,
+    btnText
   } = state.problem;
 
   return {
@@ -39,7 +40,8 @@ const mapStateToProps = state => {
     problemScore,
     finalCode,
     submitTime,
-    storgeTime
+    storgeTime,
+    btnText
   };
 };
 
@@ -65,18 +67,18 @@ const mapDispatchToProps = dispatch => {
         type: "CLOSE_SIDEPROBLEMMODAL"
       });
     },
-    checkCode(code, level) {
-      checkCodeAPI(dispatch, code, level);
+    checkCode(code, level, stage) {
+      checkCodeAPI(dispatch, code, level, stage);
     },
-    scoreCode(code, level, time) {
-      scoreCodeAPI(dispatch, code, level, time);
+    scoreCode(code, level, stage, time, userName) {
+      scoreCodeAPI(dispatch, code, level, stage, time, userName);
     },
     problemOnLoad(level, stage) {
       problemOnLoadAPI(dispatch, level, stage);
     },
-    closeResultModad() {
+    closeResultModal() {
       dispatch({
-        type: "CLOSE_RESULTMMODAL"
+        type: "CLOSE_RESULTMODAL"
       });
     },
     setStorgeTime(time) {

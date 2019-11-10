@@ -18,37 +18,73 @@ $color8: #ffffff;
   z-index: 2;
   .problem-result-box {
     position: relative;
-    width: 500px;
+    width: 800px;
     height: 700px;
     margin: 200px auto;
     background: $color4;
     border-radius: 20px;
-    .code-result-context-wrapper {
-      width: 100%;
+    .code-result-context-wrapper-right {
+      float: right;
+      height: 75%;
+      overflow-y: scroll;
+      width: 45%;
+      margin: 30px 20px 0 0;
       box-sizing: border-box;
-      padding: 20px;
-      color: $color1;
-      .red {
-        color: $color5;
+      .code-result-wrapper {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 20px 40px;
+        color: $color1;
+        .red {
+          color: $color5;
+        }
+        .blue {
+          color: $color7;
+        }
+        .code-result-context-title {
+          font-weight: bold;
+        }
       }
-      .blue {
-        color: $color7;
+    }
+    .code-result-context-wrapper-left {
+      float: left;
+      width: 50%;
+      box-sizing: border-box;
+      padding: 40px;
+      .code-result-context {
+        margin: 20px 0;
       }
-      .code-result-context-title {
-        font-weight: bold;
+      .CodeMirror {
+        border-radius: 10px;
       }
     }
     .problem-result-btn {
+      display: block;
       position: absolute;
-      top: 650px;
-      left: 200px;
-      width: 100px;
-      height: 30px;
+      top: 640px;
+      left: 350px;
+      width: 120px;
+      height: 35px;
+      box-sizing: border-box;
+      padding: 5px 0;
+      font-weight: bold;
+      font-size: 16px;
+      letter-spacing: 1px;
       background: $color7;
+      border: 1px solid $color7;
       color: $color8;
       text-align: center;
       border-radius: 10px;
       cursor: pointer;
     }
+    .problem-result-btn:hover {
+      background: $color8;
+      color: $color7;
+    }
+  }
+  .problem-result-box::after {
+    content: "";
+    display: block;
+    clear: both;
   }
 }

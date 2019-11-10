@@ -19,9 +19,9 @@ class App extends Component {
 
   render() {
     var time = 0;
-    console.log(Number(localStorage.getItem("submitTime")));
     if (Number(localStorage.getItem("submitTime")) > 0) {
       time = Number(localStorage.getItem("submitTime"));
+      localStorage.removeItem("submitTime");
     }
     console.log(this.props);
     return (
@@ -68,6 +68,7 @@ class App extends Component {
           render={routrProps => (
             <Problem
               routrProps={routrProps}
+              userName={this.props.userName}
               userStage={this.props.userStage}
               checkCode={this.props.checkCode}
               scoreCode={this.props.scoreCode}
@@ -88,7 +89,8 @@ class App extends Component {
               problemScore={this.props.problemScore}
               finalCode={this.props.finalCode}
               submitTime={this.props.submitTime}
-              closeResultModad={this.props.closeResultModad}
+              closeResultModal={this.props.closeResultModal}
+              btnText={this.props.btnText}
             />
           )}
         </Route>

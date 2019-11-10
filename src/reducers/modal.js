@@ -37,7 +37,7 @@ function modalReducers(state = initialState, action) {
           problemResultModal: true
         }
       );
-    case "CLOSE_RESULTMMODAL":
+    case "CLOSE_RESULTMODAL":
       return Object.assign(
         { ...state },
         {
