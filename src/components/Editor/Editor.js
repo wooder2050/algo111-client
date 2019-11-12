@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 import "./Editor.scss";
 
 import CodeMirror from "codemirror";
@@ -17,9 +18,7 @@ class Editor extends Component {
     this.state = {
       value: null,
       curTime: 0,
-      startTime: 0,
-      paramsValue: 0,
-      prevTime: 0
+      startTime: 0
     };
   }
   timerId = 0;
@@ -69,7 +68,6 @@ class Editor extends Component {
     });
   };
   render() {
-    console.log("edi ", this.props);
     function timeFunc(curTime, startTime, submitTime, transTime) {
       var time = Math.floor((curTime - startTime) / 1000);
       if (submitTime) {
@@ -99,87 +97,109 @@ class Editor extends Component {
     var minutesTime = timeArray[1];
     var secondsTime = timeArray[2];
     localStorage.setItem("submitTime", time);
-    console.log(localStorage.getItem("submitTime"));
     return (
-      <div className="editor-pane">
-        <div className="time-table">
-          <div className="timer-text">제한시간</div>
-          {secondsTime < 0 && this.props.problem ? (
-            ""
-          ) : (
-            <div className="timer">
-              {minutesTime > 9 ? minutesTime : "0" + minutesTime} :
-              {secondsTime > 9 ? secondsTime : "0" + secondsTime}
-            </div>
-          )}
-        </div>
-        <div className="code-example">
-          반드시 <strong>함수</strong>를 활용하세요! <br />
-          입력 값 = <strong>매개변수</strong>로, 출력 값 ={" "}
-          <strong>함수의 리턴 값</strong>으로 활용하세요!
-          <br />
-          <strong>{this.props.problem ? this.props.problem.notice : ""}</strong>
-        </div>
-        <div
-          className="code-editor"
-          placeholder="코드를 입력하세요"
-          ref={ref => (this.editor = ref)}
-        ></div>
-        <div className="code-result-wrapper">
-          <div className="code-result-title">실행 결과</div>
-          <div className="code-result">
-            <div className="code-result-scroll">
-              {this.props.problemCheck &&
-                this.props.problemCheck.map((Check, i) => {
-                  return (
-                    <div className="code-result-context-wrapper" key={i}>
-                      <div className="code-result-context-title" data-set={i}>
-                        test case {i + 1}
-                      </div>
-                      <div className="code-result-context" data-set={i}>
-                        Expect : {Check.expect}
-                      </div>
-                      <div className="code-result-context" data-set={i}>
-                        Your_answer : {Check.your_answer}
-                      </div>
-                      <div className="code-result-context" data-set={i}>
-                        Result : {Check.result}
-                      </div>
-                    </div>
-                  );
-                })}
+      <>
+        {time > 3600 ? (
+          <div className="end-modal">
+            <div className="end-modal-wrapper">
+              <p className="end-modal-main-text">
+                오늘 제공된 한 시간을 모두 소진하였습니다.
+              </p>
+              <p className="end-modal-text">내일 00시 이후 다시 도전하세요.</p>
+              <NavLink
+                onClick={e => this.props.endTodayModal(this.props.userName)}
+                className="end-modal-btn"
+                to="/"
+              >
+                나가기
+              </NavLink>
             </div>
           </div>
-        </div>
-        <div className="code-btn-wrapper">
-          <div
-            onClick={e =>
-              this.props.checkCode(
-                this.state.value,
-                this.props.level,
-                this.props.stage
-              )
-            }
-            className="code-btn-execution"
-          >
-            실행
+        ) : (
+          ""
+        )}
+        <div className="editor-pane">
+          <div className="time-table">
+            <div className="timer-text">제한시간</div>
+            {secondsTime < 0 && this.props.problem ? (
+              ""
+            ) : (
+              <div className="timer">
+                {minutesTime > 9 ? minutesTime : "0" + minutesTime} :
+                {secondsTime > 9 ? secondsTime : "0" + secondsTime}
+              </div>
+            )}
+          </div>
+          <div className="code-example">
+            반드시 <strong>함수</strong>를 활용하세요! <br />
+            입력 값 = <strong>매개변수</strong>로, 출력 값 ={" "}
+            <strong>함수의 리턴 값</strong>으로 활용하세요!
+            <br />
+            <strong>
+              {this.props.problem ? this.props.problem.notice : ""}
+            </strong>
           </div>
           <div
-            onClick={e =>
-              this.props.scoreCode(
-                this.state.value,
-                this.props.level,
-                this.props.stage,
-                time,
-                this.props.userName
-              )
-            }
-            className="code-btn-result"
-          >
-            코드 채점하고 제출
+            className="code-editor"
+            placeholder="코드를 입력하세요"
+            ref={ref => (this.editor = ref)}
+          ></div>
+          <div className="code-result-wrapper">
+            <div className="code-result-title">실행 결과</div>
+            <div className="code-result">
+              <div className="code-result-scroll">
+                {this.props.problemCheck &&
+                  this.props.problemCheck.map((Check, i) => {
+                    return (
+                      <div className="code-result-context-wrapper" key={i}>
+                        <div className="code-result-context-title" data-set={i}>
+                          test case {i + 1}
+                        </div>
+                        <div className="code-result-context" data-set={i}>
+                          Expect : {Check.expect}
+                        </div>
+                        <div className="code-result-context" data-set={i}>
+                          Your_answer : {Check.your_answer}
+                        </div>
+                        <div className="code-result-context" data-set={i}>
+                          Result : {Check.result}
+                        </div>
+                      </div>
+                    );
+                  })}
+              </div>
+            </div>
+          </div>
+          <div className="code-btn-wrapper">
+            <div
+              onClick={e =>
+                this.props.checkCode(
+                  this.state.value,
+                  this.props.level,
+                  this.props.stage
+                )
+              }
+              className="code-btn-execution"
+            >
+              실행
+            </div>
+            <div
+              onClick={e =>
+                this.props.scoreCode(
+                  this.state.value,
+                  this.props.level,
+                  this.props.stage,
+                  time,
+                  this.props.userName
+                )
+              }
+              className="code-btn-result"
+            >
+              코드 채점하고 제출
+            </div>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 }

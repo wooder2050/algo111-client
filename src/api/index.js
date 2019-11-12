@@ -106,3 +106,48 @@ export const problemOnLoadAPI = (dispatch, level, stage) => {
       });
   });
 };
+
+export const endTodayModalAPI = (dispatch, name) => {
+  return new Promise(() => {
+    fetch(`http://localhost:5000/users/date`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Credentials": true
+      },
+      body: JSON.stringify({
+        name: name
+      })
+    }).then(response => {
+      if (response.status === 200) {
+        dispatch({
+          type: "END_TODAYMODAL"
+        });
+      }
+    });
+  });
+};
+
+export const onLoadProblemAPI = dispatch => {
+  return new Promise(() => {
+    fetch(`http://localhost:5000/problems`, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Credentials": true
+      }
+    })
+      .then(response => {
+        if (response.status === 200) return response.json();
+        throw new Error("failed to authenticate user");
+      })
+      .then(responseJson => {
+        dispatch({
+          type: "PROBELM_ONLOAD_ALL",
+          responseJson
+        });
+      });
+  });
+};

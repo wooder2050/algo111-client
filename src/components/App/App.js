@@ -7,6 +7,7 @@ import SideHeader from "../Sideheader/SideHeader";
 import Header from "../Header/Header";
 import Problem from "../Problem/Problem";
 import ProblemResult from "../ProblemResult/ProblemResult";
+import TodayEnd from "../TodayEnd/TodayEnd";
 import "./App.scss";
 
 class App extends Component {
@@ -17,15 +18,48 @@ class App extends Component {
     }
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (
+      prevProps.problemResultModal !== this.props.problemResultModal &&
+      this.props.storgeTime === null &&
+      this.props.submitTime === null
+    ) {
+      if (localStorage.getItem("id_token")) {
+        let user_info = jwtDecode(localStorage.getItem("id_token"));
+        this.props.onLoad(user_info);
+      }
+    }
+
+    if (
+      this.props.todayEnd &&
+      this.props.storgeTime === null &&
+      this.props.submitTime === null
+    ) {
+      if (localStorage.getItem("id_token")) {
+        let user_info = jwtDecode(localStorage.getItem("id_token"));
+        this.props.onLoad(user_info);
+      }
+    }
+  }
   render() {
+    console.log(this.props);
     var time = 0;
     if (Number(localStorage.getItem("submitTime")) > 0) {
       time = Number(localStorage.getItem("submitTime"));
       localStorage.removeItem("submitTime");
     }
-    console.log(this.props);
     return (
       <div className="app">
+        {!this.props.todayAuthority && (
+          <TodayEnd
+            auth={this.props.auth}
+            userName={this.props.userName}
+            userLevel={this.props.userLevel}
+            userStage={this.props.userStage}
+            userPoint={this.props.userPoint}
+            onLoad={this.props.onLoad}
+          />
+        )}
         {this.props.userName ? (
           <>
             <Header
@@ -57,6 +91,11 @@ class App extends Component {
             clickSideProblemModal={this.props.clickSideProblemModal}
             sideModal={this.props.sideModal}
             problemModal={this.props.problemModal}
+            onLoadProblem={this.props.onLoadProblem}
+            problemAll={this.props.problemAll}
+            popularProblem={this.props.popularProblem}
+            popularProblemNumber={this.props.popularProblemNumber}
+            closeSideProblemModal={this.props.closeSideProblemModal}
           />
         </Route>
         <Route exact path="/callback" exact>
@@ -81,6 +120,7 @@ class App extends Component {
               time={time}
               storgeTime={this.props.storgeTime}
               setStorgeTime={this.props.setStorgeTime}
+              endTodayModal={this.props.endTodayModal}
             />
           )}
         >
@@ -90,6 +130,7 @@ class App extends Component {
               finalCode={this.props.finalCode}
               submitTime={this.props.submitTime}
               closeResultModal={this.props.closeResultModal}
+              returnResultModal={this.props.returnResultModal}
               btnText={this.props.btnText}
             />
           )}

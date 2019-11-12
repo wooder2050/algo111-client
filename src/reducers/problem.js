@@ -1,15 +1,28 @@
 const initialState = {
+  problemAll: null,
+  popularProblem: null,
+  popularProblemNumber: 0,
   problemInfo: null,
   problemCheck: null,
   problemScore: null,
   finalCode: null,
   submitTime: null,
   storgeTime: null,
-  btnText: null
+  btnText: null,
+  todayEnd: false
 };
 
 function problemReducers(state = initialState, action) {
   switch (action.type) {
+    case "PROBELM_ONLOAD_ALL":
+      return Object.assign(
+        { ...state },
+        {
+          problemAll: action.responseJson.problem,
+          popularProblem: action.responseJson.popularProblem,
+          popularProblemNumber: action.responseJson.popularProblemNumber
+        }
+      );
     case "PROBELM_ONLOAD":
       return Object.assign(
         { ...state },
@@ -48,6 +61,22 @@ function problemReducers(state = initialState, action) {
         {
           storgeTime: null,
           submitTime: null
+        }
+      );
+    case "END_TODAYMODAL":
+      return Object.assign(
+        { ...state },
+        {
+          storgeTime: null,
+          submitTime: null,
+          todayEnd: true
+        }
+      );
+    case "LOGIN_SUCCESS":
+      return Object.assign(
+        { ...state },
+        {
+          todayEnd: false
         }
       );
 

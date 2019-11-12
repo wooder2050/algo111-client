@@ -44,6 +44,13 @@ function modalReducers(state = initialState, action) {
           problemResultModal: false
         }
       );
+    case "RETURN_RESULTMODAL":
+      return Object.assign(
+        { ...state },
+        {
+          problemResultModal: false
+        }
+      );
     default:
       return state;
   }

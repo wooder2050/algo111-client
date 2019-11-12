@@ -73,13 +73,23 @@ class ProblemResult extends Component {
               ref={ref => (this.editor = ref)}
             ></div>
           </div>
-          <NavLink
-            onClick={this.props.closeResultModal}
-            className="problem-result-btn"
-            to="/"
-          >
-            {this.props.btnText}
-          </NavLink>
+          {this.props.btnText === "다음 풀기" ? (
+            <NavLink
+              onClick={this.props.closeResultModal}
+              className="problem-result-btn"
+              to="/"
+            >
+              {this.props.btnText}
+            </NavLink>
+          ) : (
+            <div
+              onClick={this.props.returnResultModal}
+              className="problem-result-btn"
+              to="/"
+            >
+              {this.props.btnText}
+            </div>
+          )}
         </div>
       </div>
     );

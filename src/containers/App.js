@@ -1,6 +1,13 @@
 import { connect } from "react-redux";
 import App from "../components/App/App";
-import { loginAPI, checkCodeAPI, problemOnLoadAPI, scoreCodeAPI } from "../api";
+import {
+  loginAPI,
+  checkCodeAPI,
+  problemOnLoadAPI,
+  scoreCodeAPI,
+  endTodayModalAPI,
+  onLoadProblemAPI
+} from "../api";
 import Auth from "../components/Auth";
 
 const mapStateToProps = state => {
@@ -11,17 +18,22 @@ const mapStateToProps = state => {
     userPictureUrl,
     userLevel,
     userStage,
-    userPoint
+    userPoint,
+    todayAuthority
   } = state.login;
   const { sideModal, problemModal, problemResultModal } = state.modal;
   const {
+    problemAll,
+    popularProblem,
+    popularProblemNumber,
     problemInfo,
     problemCheck,
     problemScore,
     finalCode,
     submitTime,
     storgeTime,
-    btnText
+    btnText,
+    todayEnd
   } = state.problem;
 
   return {
@@ -32,16 +44,21 @@ const mapStateToProps = state => {
     userLevel,
     userStage,
     userPoint,
+    todayAuthority,
     sideModal,
     problemModal,
     problemResultModal,
+    problemAll,
+    popularProblem,
+    popularProblemNumber,
     problemInfo,
     problemCheck,
     problemScore,
     finalCode,
     submitTime,
     storgeTime,
-    btnText
+    btnText,
+    todayEnd
   };
 };
 
@@ -81,11 +98,22 @@ const mapDispatchToProps = dispatch => {
         type: "CLOSE_RESULTMODAL"
       });
     },
+    returnResultModal() {
+      dispatch({
+        type: "RETURN_RESULTMODAL"
+      });
+    },
     setStorgeTime(time) {
       dispatch({
         type: "SET_STORGETIME",
         time
       });
+    },
+    endTodayModal(name) {
+      endTodayModalAPI(dispatch, name);
+    },
+    onLoadProblem() {
+      onLoadProblemAPI(dispatch);
     }
   };
 };

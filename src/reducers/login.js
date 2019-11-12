@@ -4,7 +4,8 @@ const initialState = {
   userPictureUrl: null,
   userLevel: 0,
   userStage: 0,
-  userPoint: 0
+  userPoint: 0,
+  todayAuthority: true
 };
 
 function loginReducers(state = initialState, action) {
@@ -18,7 +19,8 @@ function loginReducers(state = initialState, action) {
           userPictureUrl: action.responseJson.userInfo.picture,
           userLevel: action.responseJson.userInfo.level,
           userStage: action.responseJson.userInfo.stage,
-          userPoint: action.responseJson.userInfo.pooint
+          userPoint: action.responseJson.userInfo.point,
+          todayAuthority: action.responseJson.userInfo.todayAuthority
         }
       );
     default:
