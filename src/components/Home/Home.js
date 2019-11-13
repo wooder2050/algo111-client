@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import jwtDecode from "jwt-decode";
 import Login from "../Login/Login";
+import king from "../../image/king.png";
+import second from "../../image/second.png";
+import third from "../../image/third.png";
 import "./Home.scss";
 
 class Home extends Component {
@@ -8,6 +11,7 @@ class Home extends Component {
     this.props.onLoadProblem();
   }
   render() {
+    console.log(this.props);
     if (!this.props.userName && localStorage.getItem("id_token")) {
       let user_info = jwtDecode(localStorage.getItem("id_token"));
       this.props.onLoad(user_info);
@@ -85,7 +89,58 @@ class Home extends Component {
                 </div>
               </div>
             </div>
-            <div className="main-context-wrapper-right"></div>
+            <div className="main-context-wrapper-right">
+              <div className="user-ranking-header">TOP 10 Ranking</div>
+              <div className="user-ranking-table">
+                {this.props.userAll &&
+                  this.props.userAll.map((user, i) => {
+                    return (
+                      <div
+                        className={
+                          i + 1 < 4
+                            ? `ranking-wrapper winner`
+                            : `ranking-wrapper`
+                        }
+                        key={i}
+                      >
+                        <div className="line"></div>
+                        <div className="ranking">{i + 1}</div>
+                        <div className="profile">
+                          <img className="picture" src={user.picture} />
+                        </div>
+                        <div className="name">
+                          <strong>{user.name}</strong>
+                        </div>
+                        <div className="level">
+                          <div className="level-text">
+                            Level {user.level}-{user.stage}
+                          </div>
+                        </div>
+                        <div className="point">
+                          <strong>{user.point}</strong>point
+                        </div>
+                        <div className="classes">
+                          {i + 1 === 1 ? (
+                            <img className="classes-img" src={king} />
+                          ) : (
+                            ""
+                          )}
+                          {i + 1 === 2 ? (
+                            <img className="classes-img" src={second} />
+                          ) : (
+                            ""
+                          )}
+                          {i + 1 === 3 ? (
+                            <img className="classes-img" src={third} />
+                          ) : (
+                            ""
+                          )}
+                        </div>
+                      </div>
+                    );
+                  })}
+              </div>
+            </div>
           </div>
         ) : (
           <Login auth={this.props.auth} />

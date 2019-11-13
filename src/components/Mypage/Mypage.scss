@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Noto+Sans+KR|Roboto&display=swap");
+$color1: #3e425c;
+$color2: #b0b1c5;
+$color3: #dee4f1;
+$color4: #ffffff;
+$color5: #f62828;
+$color6: #268f68;
+$color7: #2b31ac;
+$color8: #ffffff;
+.mypage-wrapper {
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 70px 0 0 100px;
+  .mypage-content {
+    width: 100%;
+    height: 100%;
+    .mypage-info-header {
+      margin: 30px 0 0 0;
+      float: left;
+      text-align: center;
+      width: 100%;
+      .mypage-profile {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        .mypage-profile-img {
+          width: 100%;
+          height: 100%;
+          border: 2px solid $color7;
+          border-radius: 50%;
+        }
+      }
+      .mypage-header-name {
+        margin: 10px 0 0 0;
+        font-weight: 500;
+        font-size: 24px;
+      }
+      .mypage-header-info {
+        margin: 10px 0 0 0;
+      }
+    }
+    .mypage-info-box-wrapper {
+      width: 100%;
+      float: left;
+      margin: 20px 0 0 0;
+      .mypage-info-box {
+        float: left;
+        width: 50%;
+        box-sizing: border-box;
+        padding: 20px;
+        .mypage-info-box-inner {
+          width: 100%;
+          margin: 0 0 20px 0;
+          padding: 10px 0 20px 0;
+          border-bottom: 1px solid rgba(204, 204, 204, 0.5);
+          .mypage-level {
+            float: left;
+            width: 70%;
+            .mypage-level-now {
+              font-size: 24px;
+              margin: 0 0 10px 0;
+              strong {
+                color: $color7;
+                font-size: 28px;
+              }
+            }
+            .mypage-level-info {
+              font-size: 16px;
+              margin: 0 0 10px 0;
+            }
+            .mypage-level-info-detail {
+              line-height: 1.6;
+              margin: 0 0 10px 0;
+            }
+          }
+          .mypage-level-graph {
+            box-sizing: border-box;
+            padding: 0 30px;
+            float: left;
+            width: 30%;
+          }
+        }
+        .mypage-info-box-inner::after {
+          content: "";
+          display: block;
+          clear: both;
+        }
+      }
+      .mypage-info-box::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+      .mypage-code-box {
+        width: 50%;
+        height: 700px;
+        float: left;
+        overflow: hidden;
+        .mypage-code-scroll {
+          width: 103%;
+          height: 100%;
+          overflow-y: scroll;
+          .mypage-code-header {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 20px;
+            font-size: 24px;
+            letter-spacing: 1px;
+          }
+          .mypage-code-box-wrapper {
+            width: 90%;
+            box-sizing: border-box;
+            padding: 0 10px;
+            .mypage-code {
+              width: 100%;
+              margin: 10px;
+              box-sizing: border-box;
+              padding: 10px;
+              border-bottom: 1px solid rgba(204, 204, 204, 0.5);
+              cursor: pointer;
+              .inner-header {
+                width: 100%;
+                color: $color7;
+                font-size: 20px;
+                margin: 0 0 10px 0;
+              }
+              .inner-level {
+                width: 100%;
+                font-weight: bold;
+                margin: 0 0 10px 0;
+              }
+              .inner-code {
+                width: 100%;
+                font-weight: bold;
+                margin: 0 0 5px 0;
+              }
+            }
+          }
+        }
+      }
+    }
+    .mypage-info-box-wrapper::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+  }
+  .mypage-content::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}

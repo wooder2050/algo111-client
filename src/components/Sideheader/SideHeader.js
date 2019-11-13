@@ -24,7 +24,7 @@ class SideHeader extends Component {
               <div className="side-icon-text">PROBLEM</div>
             </div>
             <div className="icon-wrapper-detail-mode">
-              <NavLink className="icon-wrapper" to="/">
+              <NavLink className="icon-wrapper" to="/mypage">
                 <img src={myPage} className="icon" />
               </NavLink>
               <div className="side-icon-text">MY-PAGE</div>
@@ -56,7 +56,7 @@ class SideHeader extends Component {
               </div>
             )}
             <div className="icon-wrapper">
-              <NavLink to="/">
+              <NavLink to="/mypage">
                 <img src={myPage} className="icon" />
               </NavLink>
               <div className="side-icon-text">MY-PAGE</div>
@@ -70,14 +70,17 @@ class SideHeader extends Component {
               <div className="side-problem-header">
                 {this.props.name} 님을 위한 코스
               </div>
-              <LevelBtn userStage={this.props.userStage} />
-              <LevelBtn userStage={this.props.userStage} />
-              <LevelBtn userStage={this.props.userStage} />
-              <LevelBtn userStage={this.props.userStage} />
-              <LevelBtn userStage={this.props.userStage} />
-              <LevelBtn userStage={this.props.userStage} />
-              <LevelBtn userStage={this.props.userStage} />
-              <LevelBtn userStage={this.props.userStage} />
+              {this.props.levelAll &&
+                this.props.levelAll.map((level, i) => {
+                  return (
+                    <LevelBtn
+                      key={i}
+                      userLevel={this.props.userLevel}
+                      userStage={this.props.userStage}
+                      level={level}
+                    />
+                  );
+                })}
             </div>
           </div>
         ) : (

@@ -16,11 +16,15 @@ $color8: #ffffff;
   left: 0;
   background: $color4;
   .main-wrapper {
+    overflow: hidden;
     width: 100%;
-    border: 4px solid red;
+    min-width: 1000px;
+    box-sizing: border-box;
     padding: 70px 0 0 100px;
     .main-header {
       font-family: "Open Sans", sans-serif;
+      color: $color8;
+      background: $color7;
       box-sizing: border-box;
       padding: 20px;
       font-size: 20px;
@@ -29,13 +33,13 @@ $color8: #ffffff;
       font-weight: bold;
       letter-spacing: 1px;
       box-shadow: 0px 1px 1px rgba(204, 204, 204, 0.7);
-      text-shadow: 2px 2px 2px rgba(204, 204, 204, 0.7);
       margin: 0 0 30px 0;
     }
     .main-context-wrapper-left {
       float: left;
       width: 50%;
       .popularProblem-wrapper {
+        max-width: 600px;
         width: 100%;
         box-sizing: border-box;
         padding: 0 30px;
@@ -43,7 +47,7 @@ $color8: #ffffff;
         .popularProblem-title {
           float: left;
           width: 100%;
-          color: $color5;
+          color: $color7;
           font-size: 16px;
           margin: 10px 0;
           font-weight: bold;
@@ -61,8 +65,8 @@ $color8: #ffffff;
         }
         .popularProblem-problem-level {
           position: absolute;
-          top: 48px;
-          left: 170px;
+          top: 10px;
+          left: 280px;
           text-align: center;
           width: 70px;
           height: 20px;
@@ -71,16 +75,15 @@ $color8: #ffffff;
           box-sizing: border-box;
           padding: 2px 0 0 0;
           font-weight: 100;
-          background: $color6;
+          background: $color7;
           color: $color8;
         }
         .popularProblem-problem-number {
           float: left;
           font-size: 16px;
+          font-weight: bold;
           letter-spacing: -1px;
           padding: 0 10px 0 0;
-          color: #a2a0aa;
-          text-shadow: 2px 2px 2px rgba(204, 204, 204, 0.5);
         }
         .popularProblem-problem-kinds {
           float: left;
@@ -97,11 +100,12 @@ $color8: #ffffff;
           padding: 20px;
           border-radius: 10px;
           line-height: 1.5;
-          background: rgba(204, 204, 204, 0.4);
+          border: 1px solid $color7;
+          background: rgba(210, 210, 210, 0.1);
         }
       }
       .popularProblem-wrapper::after {
-        content: '';
+        content: "";
         clear: both;
         display: block;
       }
@@ -110,7 +114,7 @@ $color8: #ffffff;
         overflow: hidden;
         .problem-all-wrapper {
           width: 103%;
-          height: 500px;
+          height: 550px;
           overflow-y: scroll;
           box-sizing: border-box;
           padding: 10px;
@@ -125,8 +129,8 @@ $color8: #ffffff;
               background: $color7;
             }
             position: relative;
-            border-top: 1px solid #D7E2EB;
-            border-bottom: 1px solid #D7E2EB;
+            border-top: 1px solid #d7e2eb;
+            border-bottom: 1px solid #d7e2eb;
             width: 48%;
             margin: 10px 1%;
             float: left;
@@ -135,7 +139,7 @@ $color8: #ffffff;
             .problem-all-level {
               float: left;
               width: 100%;
-              color: $color5;
+              color: $color7;
             }
             .problem-all-title {
               float: left;
@@ -148,17 +152,17 @@ $color8: #ffffff;
               float: left;
               color: #a2a0aa;
               text-shadow: 2px 2px 2px rgba(204, 204, 204, 0.5);
-              padding: 0 10px 0 0; 
+              padding: 0 10px 0 0;
             }
           }
           .problem-all-context-wrapper::after {
-            content: '';
+            content: "";
             clear: both;
             display: block;
           }
         }
         .problem-all-wrapper::after {
-          content: '';
+          content: "";
           clear: both;
           display: block;
         }
@@ -167,6 +171,104 @@ $color8: #ffffff;
     .main-context-wrapper-right {
       float: right;
       width: 50%;
+      .user-ranking-header {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 20px 0 0;
+        color: $color7;
+        font-family: "Open Sans", sans-serif;
+        font-weight: bold;
+        font-size: 24px;
+        text-shadow: 2px 2px 2px rgba(204, 204, 204, 0.5);
+        letter-spacing: 1px;
+        margin: 0 0 10px 0;
+      }
+      .user-ranking-table {
+        margin: 0 10% 0 0;
+        min-width: 550px;
+        width: 90%;
+        .winner {
+         background: rgba(181, 169, 248, 0.2);
+        }
+        .ranking-wrapper {
+          float: left;
+          max-width: 500px;
+          width: 100%;
+          border-top: 1px solid rgba(204, 204, 204, 0.5);
+          border-bottom: 1px solid rgba(204, 204, 204, 0.5);
+          .ranking {
+            width: 45px;
+            box-sizing: border-box;
+            text-align: left;
+            float: left;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 15px 10px 0 10px;
+          }
+          .profile {
+            float: left;
+            width: 50px;
+            height: 60px;
+            box-sizing: border-box;
+            padding: 5px 0;
+            .picture {
+              width: 100%;
+              height: 100%;
+              border-radius: 50%;
+              border: 1px solid $color7;
+            }
+          }
+          .name {
+            width: 50px;
+            float: left;
+            padding: 20px 0 0 0;
+            margin: 0 0 0 15px;
+          }
+          .level {
+            color: $color7;
+            width:100px;
+            float: left;
+            padding: 15px 0 0 0;
+            margin: 0 10px;
+            .level-text {
+              text-align: center;
+              box-sizing: border-box;
+              padding: 5px 0;
+              width: 75px;
+              font-size: 12px;
+              border-radius: 5px;
+              background: $color8;
+              color: $color7;
+              border: 1px solid $color7;
+            }
+          }
+          .point {
+            width: 100px;
+            float: left;
+            padding: 20px 0 0 0;
+            margin: 0 10px;
+          }
+          .classes {
+            box-sizing: border-box;
+            padding: 5px 0 0 0;
+            width: 45px;
+            float: left;
+            .classes-img {
+              width: 100%;
+            }
+          }
+        }
+        .ranking-wrapper::after {
+          content: "";
+          display: block;
+          clear: both;
+        }
+      }
+      .user-ranking-table::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
     }
   }
   .main-wrapper::after {

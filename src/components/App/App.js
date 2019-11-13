@@ -8,6 +8,7 @@ import Header from "../Header/Header";
 import Problem from "../Problem/Problem";
 import ProblemResult from "../ProblemResult/ProblemResult";
 import TodayEnd from "../TodayEnd/TodayEnd";
+import Mypage from "../Mypage/Mypage";
 import "./App.scss";
 
 class App extends Component {
@@ -71,14 +72,16 @@ class App extends Component {
             />
             <SideHeader
               name={this.props.userName}
+              userLevel={this.props.userLevel}
               userStage={this.props.userStage}
               clickSideProblemModal={this.props.clickSideProblemModal}
               sideModal={this.props.sideModal}
               problemModal={this.props.problemModal}
+              levelAll={this.props.levelAll}
             />
           </>
         ) : (
-          <div></div>
+          ""
         )}
         <Route exact path="/" exact>
           <Home
@@ -96,10 +99,23 @@ class App extends Component {
             popularProblem={this.props.popularProblem}
             popularProblemNumber={this.props.popularProblemNumber}
             closeSideProblemModal={this.props.closeSideProblemModal}
+            userAll={this.props.userAll}
           />
         </Route>
-        <Route exact path="/callback" exact>
+        <Route exact path="/callback">
           <Callback auth={this.props.auth} />
+        </Route>
+        <Route exact path="/mypage">
+          <Mypage
+            closeSideProblemModal={this.props.closeSideProblemModal}
+            codeAll={this.props.codeAll}
+            userLevel={this.props.userLevel}
+            userName={this.props.userName}
+            userPictureUrl={this.props.userPictureUrl}
+            userPoint={this.props.userPoint}
+            userStage={this.props.userStage}
+            levelAll={this.props.levelAll}
+          />
         </Route>
         <Route
           exact

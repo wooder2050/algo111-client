@@ -19,7 +19,10 @@ const mapStateToProps = state => {
     userLevel,
     userStage,
     userPoint,
-    todayAuthority
+    todayAuthority,
+    userAll,
+    levelAll,
+    codeAll
   } = state.login;
   const { sideModal, problemModal, problemResultModal } = state.modal;
   const {
@@ -45,6 +48,9 @@ const mapStateToProps = state => {
     userStage,
     userPoint,
     todayAuthority,
+    userAll,
+    levelAll,
+    codeAll,
     sideModal,
     problemModal,
     problemResultModal,

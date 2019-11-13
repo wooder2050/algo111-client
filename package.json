@@ -9,6 +9,7 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "antd": "^3.25.1",
     "auth0-js": "^9.11.3",
     "codemirror": "^5.49.2",
     "http-proxy-middleware": "^0.20.0",
