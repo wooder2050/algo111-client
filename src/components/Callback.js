@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import "./Callback.scss";
+import loading from "../image/loading.gif";
 
 class Callback extends Component {
   async componentDidMount() {
@@ -8,7 +10,12 @@ class Callback extends Component {
   }
 
   render() {
-    return <p>Loading profile...</p>;
+    return (
+      <>
+        <img className="loading-img" src={loading} />
+        <div className="loading-text">I am Loading... be patient...</div>
+      </>
+    );
   }
 }
 

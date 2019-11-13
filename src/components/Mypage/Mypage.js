@@ -6,16 +6,13 @@ import "antd/dist/antd.css";
 class Mypage extends Component {
   render() {
     var myCode = [];
-    console.log(this.props);
     if (this.props.codeAll) {
       for (var i = 0; i < this.props.codeAll.length; i++) {
         if (this.props.codeAll[i].userName === this.props.userName) {
           myCode.push(this.props.codeAll[i]);
         }
-        // console.log(this.props.codeAll[i].userName);
       }
     }
-    console.log(myCode);
     return (
       <div
         onClick={this.props.closeSideProblemModal}

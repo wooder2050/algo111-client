@@ -12,6 +12,8 @@
     "antd": "^3.25.1",
     "auth0-js": "^9.11.3",
     "codemirror": "^5.49.2",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
     "http-proxy-middleware": "^0.20.0",
     "jwt-decode": "^2.2.0",
     "react": "^16.11.0",

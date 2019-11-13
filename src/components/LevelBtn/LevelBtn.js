@@ -4,9 +4,16 @@ import "./LevelBtn.scss";
 
 class LevelBtn extends Component {
   render() {
-    var per = (Number(this.props.userStage) / this.props.level.problem) * 100;
+    var per =
+      (Number(this.props.userStage - 1) / this.props.level.problem) * 100;
     const tempStyle = {
       width: `${per}%`
+    };
+    const tempStyleComplete = {
+      width: `100%`
+    };
+    const tempStyleUnComplete = {
+      width: `0%`
     };
     return (
       <>
@@ -35,11 +42,11 @@ class LevelBtn extends Component {
             </div>
             <div className="side-problem-level-Progress-info">
               <div className="side-problem-level-Progress-info-end">
-                문제 {this.props.userStage}/{this.props.level.problem}개 풀이
-                완료
+                문제 {this.props.userStage - 1}/{this.props.level.problem}개
+                풀이 완료
               </div>
               <div className="side-problem-level-Progress-info-percent">
-                {(Number(this.props.userStage) / this.props.level.problem) *
+                {(Number(this.props.userStage - 1) / this.props.level.problem) *
                   100}
                 %
               </div>
@@ -53,7 +60,16 @@ class LevelBtn extends Component {
             <div className="side-problem-level-info">
               {this.props.level.description}
             </div>
-            <div className="side-problem-level-Progress"></div>
+            <div className="side-problem-level-Progress">
+              <div
+                className="side-problem-level-Progress-complete"
+                style={
+                  Number(this.props.userLevel) > this.props.level.level
+                    ? tempStyleComplete
+                    : tempStyleUnComplete
+                }
+              ></div>
+            </div>
             <div className="side-problem-level-Progress-info">
               <div className="side-problem-level-Progress-info-end">
                 문제 {this.props.level.problem}개{" "}

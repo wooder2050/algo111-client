@@ -20,13 +20,14 @@ class Header extends Component {
           </Link>
         </div>
         <div className="logout">
-          <div onClick={this.props.auth.signOut}>
+          <div className="logout-inner" onClick={this.props.auth.signOut}>
             <Link to="/login">LOGOUT</Link>
           </div>
         </div>
         <div className="user-info-wrapper">
           <div className="user-name">
-            <strong>{this.props.name}</strong> 님 안녕하세요!
+            <strong className="user-name-text">{this.props.name}</strong> 님
+            안녕하세요!
           </div>
           <div className="user-picture-wrapper">
             <img

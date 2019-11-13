@@ -40,7 +40,10 @@ class ProblemResult extends Component {
                       test case {i + 1}
                     </div>
                     <div className="code-result-context" data-set={i}>
-                      Expect : <strong>{score.expect}</strong>
+                      Expect :{" "}
+                      <strong className="code-result-context-text">
+                        {score.expect}
+                      </strong>
                     </div>
                     <div className="code-result-context" data-set={i}>
                       Your_answer : <strong>{score.your_answer}</strong>

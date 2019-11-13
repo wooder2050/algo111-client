@@ -77,7 +77,6 @@ $color9: #9fa1d3;
   }
 }
 
-
 .side-problem-level-unactive {
   position: relative;
   display: block;
@@ -102,11 +101,21 @@ $color9: #9fa1d3;
     margin: 0 0 30px 0;
   }
   .side-problem-level-Progress {
+    position: relative;
     width: 90%;
     height: 8px;
     background: $color8;
     border-radius: 5px;
     margin: 0 0 20px 0;
+    .side-problem-level-Progress-complete {
+      position: absolute;
+      height: 8px;
+      background: $color7;
+      border: 1px solid $color8;
+      border-radius: 5px;
+      top: 0;
+      left: 0;
+    }
   }
   .side-problem-level-Progress-complete {
     position: absolute;

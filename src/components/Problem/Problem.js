@@ -35,11 +35,27 @@ class Problem extends Component {
                 ? this.props.problemInfo.problem.description
                 : ""}
             </div>
+            {this.props.problemInfo &&
+            this.props.problemInfo.problem.descriptionURL ? (
+              <img
+                className="problem-info-url"
+                src={this.props.problemInfo.problem.descriptionURL}
+              />
+            ) : (
+              ""
+            )}
             <div className="problem-info">제한 사항 & 입력</div>
             <div className="problem-info-description">
-              {this.props.problemInfo
-                ? this.props.problemInfo.problem.Limitations
-                : ""}
+              {this.props.problemInfo &&
+                this.props.problemInfo.problem.Limitations.map(
+                  (Limitations, i) => {
+                    return (
+                      <div key={i}>
+                        {i + 1}{"."} {Limitations}
+                      </div>
+                    );
+                  }
+                )}
             </div>
             <div className="problem-info">입력 예제 </div>
             <div className="problem-info-description">

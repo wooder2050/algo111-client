@@ -11,7 +11,6 @@ class Home extends Component {
     this.props.onLoadProblem();
   }
   render() {
-    console.log(this.props);
     if (!this.props.userName && localStorage.getItem("id_token")) {
       let user_info = jwtDecode(localStorage.getItem("id_token"));
       this.props.onLoad(user_info);
