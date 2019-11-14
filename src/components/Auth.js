@@ -6,7 +6,7 @@ export default class Auth {
     domain: "jaeyoung.auth0.com",
     audience: "https://jaeyoung.auth0.com/userinfo",
     clientID: "ZyFfnFhkPTAmvjMIoUjtuJrMHNqc10qn",
-    redirectUri: "https://objective-mclean-204a06.netlify.com/callback",
+    redirectUri: "https://www.algo111.online/callback",
     responseType: "token id_token",
     scope: "openid profile"
   });
@@ -64,7 +64,7 @@ export default class Auth {
     localStorage.removeItem("id_token");
     localStorage.removeItem("expires_at");
     this.auth0.logout({
-      returnTo: "https://objective-mclean-204a06.netlify.com",
+      returnTo: "https://www.algo111.online",
       clientID: "ZyFfnFhkPTAmvjMIoUjtuJrMHNqc10qn"
     });
   }
