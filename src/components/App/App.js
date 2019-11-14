@@ -112,7 +112,7 @@ class App extends Component {
             userAll={this.props.userAll}
           />
         </Route>
-        <Route exact path="/callback">
+        <Route path="/callback">
           <Callback auth={this.props.auth} />
         </Route>
         <Route exact path="/mypage">
