@@ -6,7 +6,7 @@ export default class Auth {
     domain: "jaeyoung.auth0.com",
     audience: "https://jaeyoung.auth0.com/userinfo",
     clientID: "ZyFfnFhkPTAmvjMIoUjtuJrMHNqc10qn",
-    redirectUri: "http://localhost:3000/callback",
+    redirectUri: "https://objective-mclean-204a06.netlify.com/callback",
     responseType: "token id_token",
     scope: "openid profile"
   });
@@ -64,7 +64,7 @@ export default class Auth {
     localStorage.removeItem("id_token");
     localStorage.removeItem("expires_at");
     this.auth0.logout({
-      returnTo: "http://localhost:3000",
+      returnTo: "https://objective-mclean-204a06.netlify.com",
       clientID: "ZyFfnFhkPTAmvjMIoUjtuJrMHNqc10qn"
     });
   }
