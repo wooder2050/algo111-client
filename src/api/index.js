@@ -1,6 +1,6 @@
 export const loginAPI = (dispatch, userInfo) => {
   return new Promise(() => {
-    fetch("http://localhost:5000/users", {
+    fetch("http://Server-env.dj9xkmkabw.ap-northeast-2.elasticbeanstalk.com/users", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -26,7 +26,7 @@ export const loginAPI = (dispatch, userInfo) => {
 
 export const checkCodeAPI = (dispatch, code, level, stage) => {
   return new Promise(() => {
-    fetch("http://localhost:5000/problems/check", {
+    fetch("http://Server-env.dj9xkmkabw.ap-northeast-2.elasticbeanstalk.com/problems/check", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -55,7 +55,7 @@ export const checkCodeAPI = (dispatch, code, level, stage) => {
 
 export const scoreCodeAPI = (dispatch, code, level, stage, time, userName) => {
   return new Promise(() => {
-    fetch("http://localhost:5000/problems/score", {
+    fetch("http://Server-env.dj9xkmkabw.ap-northeast-2.elasticbeanstalk.com/problems/score", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -86,7 +86,7 @@ export const scoreCodeAPI = (dispatch, code, level, stage, time, userName) => {
 
 export const problemOnLoadAPI = (dispatch, level, stage) => {
   return new Promise(() => {
-    fetch(`http://localhost:5000/problems/${level}/${stage}`, {
+    fetch(`http://Server-env.dj9xkmkabw.ap-northeast-2.elasticbeanstalk.com/problems/${level}/${stage}`, {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -109,7 +109,7 @@ export const problemOnLoadAPI = (dispatch, level, stage) => {
 
 export const endTodayModalAPI = (dispatch, name) => {
   return new Promise(() => {
-    fetch(`http://localhost:5000/users/date`, {
+    fetch(`http://Server-env.dj9xkmkabw.ap-northeast-2.elasticbeanstalk.com/users/date`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -131,7 +131,7 @@ export const endTodayModalAPI = (dispatch, name) => {
 
 export const onLoadProblemAPI = dispatch => {
   return new Promise(() => {
-    fetch(`http://localhost:5000/problems`, {
+    fetch(`http://Server-env.dj9xkmkabw.ap-northeast-2.elasticbeanstalk.com/problems`, {
       method: "GET",
       headers: {
         Accept: "application/json",
