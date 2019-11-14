@@ -37,6 +37,9 @@ class Editor extends Component {
   };
 
   componentDidMount() {
+    console.log("did edi ", this.props);
+    console.log(localStorage.getItem("submitTime"));
+    console.log(localStorage.getItem("timeTrans"));
     this.props.setStorgeTime(this.props.time);
     var value = `function solution(n) {
           //Your code here..
@@ -61,6 +64,11 @@ class Editor extends Component {
     const v = new Date().getTime();
     this.setState({ curTime: v });
   }
+  scoreCode(value, level, stage, time, userName) {
+    this.props.scoreCode(value, level, stage, time, userName);
+    const v = new Date().getTime();
+    this.setState({ startTime: v });
+  }
 
   handleChangeMarkdown = body => {
     this.setState({
@@ -68,13 +76,24 @@ class Editor extends Component {
     });
   };
   render() {
+    // console.log(
+    //   "render edi",
+    //   this.props,
+    //   localStorage.getItem("timeTrans"),
+    //   localStorage.getItem("submitTime")
+    // );
     function timeFunc(curTime, startTime, submitTime, transTime) {
-      var time = Math.floor((curTime - startTime) / 1000);
-      if (submitTime) {
-        time += Number(submitTime);
-      } else if (transTime) {
-        time += transTime;
+      var time;
+      if (Math.floor((curTime - startTime) / 1000 > 0)) {
+        time = Math.floor((curTime - startTime) / 1000);
+      } else {
+        time = 0;
       }
+      console.log(time, Number(transTime), submitTime);
+      if (transTime) {
+        time += Number(transTime);
+      }
+
       var minutesTime = 0;
       if (Math.floor(time / 60) > 0) {
         minutesTime = Math.floor(time / 60);
@@ -90,8 +109,8 @@ class Editor extends Component {
     var timeArray = timeFunc(
       this.state.curTime,
       this.state.startTime,
-      this.props.submitTime,
-      this.props.storgeTime
+      localStorage.getItem("submitTime"),
+      localStorage.getItem("timeTrans")
     );
     var time = timeArray[0];
     var minutesTime = timeArray[1];
@@ -185,7 +204,7 @@ class Editor extends Component {
             </div>
             <div
               onClick={e =>
-                this.props.scoreCode(
+                this.scoreCode(
                   this.state.value,
                   this.props.level,
                   this.props.stage,

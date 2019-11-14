@@ -4,6 +4,9 @@ import Editor from "../Editor/Editor";
 
 class Problem extends Component {
   componentDidMount() {
+    console.log("did problem ", this.props);
+    console.log(localStorage.getItem("submitTime"));
+    console.log(localStorage.getItem("timeTrans"));
     if (this.props.routrProps.match.params.level) {
       this.props.problemOnLoad(
         this.props.routrProps.match.params.level,
@@ -12,6 +15,9 @@ class Problem extends Component {
     }
   }
   render() {
+    console.log("render problem ", this.props);
+    console.log(localStorage.getItem("submitTime"));
+    console.log(localStorage.getItem("timeTrans"));
     return (
       <div
         onClick={this.props.closeSideProblemModal}
@@ -51,7 +57,8 @@ class Problem extends Component {
                   (Limitations, i) => {
                     return (
                       <div key={i}>
-                        {i + 1}{"."} {Limitations}
+                        {i + 1}
+                        {"."} {Limitations}
                       </div>
                     );
                   }

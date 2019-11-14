@@ -24,6 +24,7 @@ function problemReducers(state = initialState, action) {
         }
       );
     case "PROBELM_ONLOAD":
+      console.log("PROBELM_ONLOAD_ALL");
       return Object.assign(
         { ...state },
         {
@@ -44,10 +45,12 @@ function problemReducers(state = initialState, action) {
           problemScore: action.responseJson.result,
           finalCode: action.responseJson.finalCode,
           submitTime: action.responseJson.time,
-          btnText: action.responseJson.btnText
+          btnText: action.responseJson.btnText,
+          problemCheck: null
         }
       );
     case "SET_STORGETIME":
+        console.log("SET_STORGETIME", action);
       return Object.assign(
         { ...state },
         {

@@ -27,14 +27,16 @@ class SideHeader extends Component {
               <NavLink className="icon-wrapper" to="/mypage">
                 <img src={myPage} className="icon" />
               </NavLink>
-              <div className="side-icon-text">MY-PAGE</div>
+              <NavLink className="side-icon-text" to="/mypage">
+                MY-PAGE
+              </NavLink>
             </div>
           </div>
         ) : (
           <div className="side-header-wrapper">
             {this.props.problemModal ? (
               <div className="icon-wrapper-problem-mode">
-                <div
+                <div className="icon-wrapper-problem-mode-inner"
                   onClick={e =>
                     this.props.clickSideProblemModal(this.props.problemModal)
                   }
@@ -45,7 +47,7 @@ class SideHeader extends Component {
               </div>
             ) : (
               <div className="icon-wrapper">
-                <div
+                <div className="icon-wrapper-problem-mode-inner"
                   onClick={e =>
                     this.props.clickSideProblemModal(this.props.problemModal)
                   }

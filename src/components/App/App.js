@@ -13,6 +13,9 @@ import "./App.scss";
 
 class App extends Component {
   componentDidMount() {
+    console.log("did app ", this.props);
+    console.log(localStorage.getItem("submitTime"));
+    console.log(localStorage.getItem("timeTrans"));
     if (localStorage.getItem("id_token")) {
       let user_info = jwtDecode(localStorage.getItem("id_token"));
       this.props.onLoad(user_info);
@@ -43,10 +46,17 @@ class App extends Component {
     }
   }
   render() {
-    console.log(this.props);
+    console.log("render app", this.props);
+    console.log(localStorage.getItem("submitTime"));
+    // localStorage.removeItem("submitTime");
+    // localStorage.removeItem("timeTrans");
     var time = 0;
     if (Number(localStorage.getItem("submitTime")) > 0) {
       time = Number(localStorage.getItem("submitTime"));
+      if (Number(localStorage.getItem("timeTrans")) > 0) {
+        
+      }
+      localStorage.setItem("timeTrans", time);
       localStorage.removeItem("submitTime");
     }
     return (
@@ -133,7 +143,7 @@ class App extends Component {
               problemCheck={this.props.problemCheck}
               problemScore={this.props.problemScore}
               submitTime={this.props.submitTime}
-              time={time}
+              // time={time}
               storgeTime={this.props.storgeTime}
               setStorgeTime={this.props.setStorgeTime}
               endTodayModal={this.props.endTodayModal}
