@@ -10,6 +10,7 @@ import ProblemResult from "../ProblemResult/ProblemResult";
 import TodayEnd from "../TodayEnd/TodayEnd";
 import Mypage from "../Mypage/Mypage";
 import "./App.scss";
+import loading from "../../image/loading.gif";
 
 class App extends Component {
   componentDidMount() {
@@ -54,7 +55,6 @@ class App extends Component {
     if (Number(localStorage.getItem("submitTime")) > 0) {
       time = Number(localStorage.getItem("submitTime"));
       if (Number(localStorage.getItem("timeTrans")) > 0) {
-        
       }
       localStorage.setItem("timeTrans", time);
       localStorage.removeItem("submitTime");
@@ -160,6 +160,12 @@ class App extends Component {
               btnText={this.props.btnText}
             />
           )}
+        </Route>
+        <Route>
+          <>
+            <img className="loading-img" src={loading} />
+            <div className="loading-text">I am Loading... be patient...</div>
+          </>
         </Route>
       </div>
     );

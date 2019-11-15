@@ -14,4 +14,14 @@ $color8: #ffffff;
   height: 100vh;
   margin: 0;
   padding: 0;
+  .loading-img {
+    position: fixed;
+    top: 0;
+    left: 30%;
+  }
+  .loading-text {
+    position: fixed;
+    top: 70%;
+    left: 30%;
+  }
 }
