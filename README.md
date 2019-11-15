@@ -11,9 +11,8 @@ ALGO111는 '하루 한 시간 한 문제' 알고리즘 문제를 푸는 웹 어�
 * Features
 * Skills
 * Tests
-* Deployment
-* Project Schedule 
-* Challenges
+* Deployment & Continuous Integration
+* Project management
 * Things To Do
 
 ## Installation
@@ -73,9 +72,22 @@ npm start
 
 [![Video Label](http://img.youtube.com/vi/tAtuviDDGuc/0.jpg)](https://www.youtube.com/watch?v=tAtuviDDGuc)
 
-<figure class="video_container">
-  <iframe src="https://www.youtube.com/embed/tAtuviDDGuc" frameborder="0" allowfullscreen="true"></iframe>
-</figure>
+## Deployment & Continuous Integration
 
+### Client
+* Netlify 를 통해 배포 자동화
 
+### Server
+* AWS Elastic beanstalk를 통해 서비스 배포
+* CircleCI를 통한 배포 자동화
+
+## Project management
+* Git, Github
+* Trello를 이용한 일정관리
+
+## Things To Do
+* 알고리즘 시간복잡도와 공간복잡도 측정
+* 한 문제에 제출한 코드 히스토리 만들기
+* 문제 해결한 유저끼리 정답을 공유하는 기능
+* 문제 만들기 기능 
 
