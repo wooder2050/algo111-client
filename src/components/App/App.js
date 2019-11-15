@@ -14,9 +14,6 @@ import loading from "../../image/loading.gif";
 
 class App extends Component {
   componentDidMount() {
-    console.log("did app ", this.props);
-    console.log(localStorage.getItem("submitTime"));
-    console.log(localStorage.getItem("timeTrans"));
     if (localStorage.getItem("id_token")) {
       let user_info = jwtDecode(localStorage.getItem("id_token"));
       this.props.onLoad(user_info);
@@ -24,22 +21,7 @@ class App extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (
-      prevProps.problemResultModal !== this.props.problemResultModal &&
-      this.props.storgeTime === null &&
-      this.props.submitTime === null
-    ) {
-      if (localStorage.getItem("id_token")) {
-        let user_info = jwtDecode(localStorage.getItem("id_token"));
-        this.props.onLoad(user_info);
-      }
-    }
-
-    if (
-      this.props.todayEnd &&
-      this.props.storgeTime === null &&
-      this.props.submitTime === null
-    ) {
+    if (this.props.todayEnd) {
       if (localStorage.getItem("id_token")) {
         let user_info = jwtDecode(localStorage.getItem("id_token"));
         this.props.onLoad(user_info);
@@ -47,18 +29,6 @@ class App extends Component {
     }
   }
   render() {
-    console.log("render app", this.props);
-    console.log(localStorage.getItem("submitTime"));
-    // localStorage.removeItem("submitTime");
-    // localStorage.removeItem("timeTrans");
-    var time = 0;
-    if (Number(localStorage.getItem("submitTime")) > 0) {
-      time = Number(localStorage.getItem("submitTime"));
-      if (Number(localStorage.getItem("timeTrans")) > 0) {
-      }
-      localStorage.setItem("timeTrans", time);
-      localStorage.removeItem("submitTime");
-    }
     return (
       <div className="app">
         {!this.props.todayAuthority && (
@@ -143,10 +113,13 @@ class App extends Component {
               problemCheck={this.props.problemCheck}
               problemScore={this.props.problemScore}
               submitTime={this.props.submitTime}
-              // time={time}
               storgeTime={this.props.storgeTime}
               setStorgeTime={this.props.setStorgeTime}
               endTodayModal={this.props.endTodayModal}
+              enterProblemModal={this.props.enterProblemModal}
+              onClickNoticeProblemModal={this.props.onClickNoticeProblemModal}
+              problemChance={this.props.problemChance}
+              onLoadNoticeInfo={this.props.onLoadNoticeInfo}
             />
           )}
         >
@@ -160,12 +133,6 @@ class App extends Component {
               btnText={this.props.btnText}
             />
           )}
-        </Route>
-        <Route>
-          <>
-            <img className="loading-img" src={loading} />
-            <div className="loading-text">I am Loading... be patient...</div>
-          </>
         </Route>
       </div>
     );

@@ -40,10 +40,13 @@ const problemInfo = {
 const problemCheck = null;
 const problemScore = null;
 const submitTime = null;
-const time = 0;
 const storgeTime = 0;
 const setStorgeTime = jest.fn();
 const endTodayModal = jest.fn();
+const enterProblemModal = true;
+const onClickNoticeProblemModal = jest.fn();
+const problemChance = 5;
+const onLoadNoticeInfo = jest.fn();
 
 describe("Problem compoment test", () => {
   let component;
@@ -62,10 +65,13 @@ describe("Problem compoment test", () => {
           problemCheck={problemCheck}
           problemScore={problemScore}
           submitTime={submitTime}
-          time={time}
           storgeTime={storgeTime}
           setStorgeTime={setStorgeTime}
           endTodayModal={endTodayModal}
+          enterProblemModal={enterProblemModal}
+          onClickNoticeProblemModal={onClickNoticeProblemModal}
+          problemChance={problemChance}
+          onLoadNoticeInfo={onLoadNoticeInfo}
         />
       </MemoryRouter>
     );

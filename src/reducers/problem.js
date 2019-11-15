@@ -24,7 +24,6 @@ function problemReducers(state = initialState, action) {
         }
       );
     case "PROBELM_ONLOAD":
-      console.log("PROBELM_ONLOAD_ALL");
       return Object.assign(
         { ...state },
         {

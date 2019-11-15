@@ -8,7 +8,8 @@ const initialState = {
   todayAuthority: true,
   userAll: null,
   levelAll: null,
-  codeAll : null
+  codeAll : null,
+  problemChance: null
 };
 
 function loginReducers(state = initialState, action) {
@@ -26,9 +27,18 @@ function loginReducers(state = initialState, action) {
           todayAuthority: action.responseJson.userInfo.todayAuthority,
           userAll: action.responseJson.userAll,
           levelAll: action.responseJson.levelAll,
-          codeAll: action.responseJson.codeAll
+          codeAll: action.responseJson.codeAll,
+          problemChance : action.responseJson.userInfo.problemChance
         }
       );
+      case "ONLOAD_NOTICEINFO":
+        return Object.assign(
+          { ...state },
+          {
+            problemChance: action.responseJson.userInfo.problemChance,
+            todayAuthority: action.responseJson.userInfo.todayAuthority
+          }
+        );
     default:
       return state;
   }

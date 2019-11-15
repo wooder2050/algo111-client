@@ -1,8 +1,7 @@
-import { Children } from "react";
-
 describe("My First Test", function() {
   it("Visits the kitchen sink", function() {
     cy.visit("http://localhost:3000/");
+    cy.screenshot();
     cy.viewport(1200, 1000);
     window.localStorage.setItem(
       "id_token",
@@ -25,10 +24,17 @@ describe("My First Test", function() {
       duration: 1000
     });
     cy.get(".side-problem-level").click();
-    cy.get(".code-result-scroll").click();
-    cy.get(".cm-string").type("1111", { duration: 1000 });
+    cy.get(".notice-about-problem-system-wrapper").click();
+    cy.get(".notice-close-btn").click();
+    cy.get(".CodeMirror textarea").type("test test test test", { force: true });
+    cy.get(".notice-close-btn").click();
     cy.get(".code-btn-execution").click();
     cy.get(".code-btn-result").click();
-    // cy.get('.menu-item').trigger('mouseover')
+    cy.get(".problem-result-btn").click();
+    cy.get(".notice-close-btn").click();
+    cy.get(".header-logo").click();
+    cy.get(".icon-wrapper-inner").click();
+    cy.get(".mypage-code-scroll").scrollTo("bottom", { duration: 1000 });
+    cy.get(".mypage-code-scroll").scrollTo("top", { duration: 1000 });
   });
 });

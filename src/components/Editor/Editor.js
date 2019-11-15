@@ -37,9 +37,6 @@ class Editor extends Component {
   };
 
   componentDidMount() {
-    console.log("did edi ", this.props);
-    console.log(localStorage.getItem("submitTime"));
-    console.log(localStorage.getItem("timeTrans"));
     this.props.setStorgeTime(this.props.time);
     var value = `function solution(n) {
           //Your code here..
@@ -76,22 +73,13 @@ class Editor extends Component {
     });
   };
   render() {
-    // console.log(
-    //   "render edi",
-    //   this.props,
-    //   localStorage.getItem("timeTrans"),
-    //   localStorage.getItem("submitTime")
-    // );
-    function timeFunc(curTime, startTime, submitTime, transTime) {
+
+    function timeFunc(curTime, startTime) {
       var time;
       if (Math.floor((curTime - startTime) / 1000 > 0)) {
         time = Math.floor((curTime - startTime) / 1000);
       } else {
         time = 0;
-      }
-      console.log(time, Number(transTime), submitTime);
-      if (transTime) {
-        time += Number(transTime);
       }
 
       var minutesTime = 0;
@@ -106,16 +94,10 @@ class Editor extends Component {
       timeArray.push(time, minutesTime, secondsTime);
       return timeArray;
     }
-    var timeArray = timeFunc(
-      this.state.curTime,
-      this.state.startTime,
-      localStorage.getItem("submitTime"),
-      localStorage.getItem("timeTrans")
-    );
+    var timeArray = timeFunc(this.state.curTime, this.state.startTime);
     var time = timeArray[0];
     var minutesTime = timeArray[1];
     var secondsTime = timeArray[2];
-    localStorage.setItem("submitTime", time);
     return (
       <>
         {time > 3600 ? (

@@ -1,6 +1,7 @@
 export const loginAPI = (dispatch, userInfo) => {
   return new Promise(() => {
     fetch("http://Server-env.dj9xkmkabw.ap-northeast-2.elasticbeanstalk.com/users", {
+    // fetch("http://localhost:5000/users", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -148,6 +149,35 @@ export const onLoadProblemAPI = dispatch => {
           type: "PROBELM_ONLOAD_ALL",
           responseJson
         });
+      });
+  });
+};
+
+
+export const onLoadNoticeInfo = (dispatch,name, chance) => {
+  return new Promise(() => {
+    fetch(`http://Server-env.dj9xkmkabw.ap-northeast-2.elasticbeanstalk.com/users/chance`, {
+    // fetch(`http://localhost:5000/users/chance`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Credentials": true
+      },
+      body: JSON.stringify({
+        chance: chance,
+        name : name
+      })
+    })
+      .then(response => {
+        if (response.status === 200) return response.json();
+        throw new Error("failed to authenticate user");
+      })
+      .then(responseJson => {
+        dispatch({
+        type: "ONLOAD_NOTICEINFO",
+        responseJson
+      })
       });
   });
 };

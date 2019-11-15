@@ -58,7 +58,7 @@ class SideHeader extends Component {
               </div>
             )}
             <div className="icon-wrapper">
-              <NavLink to="/mypage">
+              <NavLink className="icon-wrapper-inner" to="/mypage">
                 <img src={myPage} className="icon" />
               </NavLink>
               <div className="side-icon-text">MY-PAGE</div>

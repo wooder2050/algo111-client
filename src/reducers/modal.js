@@ -1,7 +1,8 @@
 const initialState = {
   sideModal: false,
   problemModal: false,
-  problemResultModal: false
+  problemResultModal: false,
+  enterProblemModal: true
 };
 
 function modalReducers(state = initialState, action) {
@@ -51,6 +52,20 @@ function modalReducers(state = initialState, action) {
           problemResultModal: false
         }
       );
+    case "CLOSE_NOTICEMODAL":
+      return Object.assign(
+        { ...state },
+        {
+          enterProblemModal: false
+        }
+      );
+      case "ONLOAD_NOTICEINFO":
+        return Object.assign(
+          { ...state },
+          {
+            enterProblemModal: true
+          }
+        );
     default:
       return state;
   }

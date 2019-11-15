@@ -6,7 +6,8 @@ import {
   problemOnLoadAPI,
   scoreCodeAPI,
   endTodayModalAPI,
-  onLoadProblemAPI
+  onLoadProblemAPI,
+  onLoadNoticeInfo
 } from "../api";
 import Auth from "../components/Auth";
 
@@ -22,9 +23,15 @@ const mapStateToProps = state => {
     todayAuthority,
     userAll,
     levelAll,
-    codeAll
+    codeAll,
+    problemChance
   } = state.login;
-  const { sideModal, problemModal, problemResultModal } = state.modal;
+  const {
+    sideModal,
+    problemModal,
+    problemResultModal,
+    enterProblemModal
+  } = state.modal;
   const {
     problemAll,
     popularProblem,
@@ -54,6 +61,8 @@ const mapStateToProps = state => {
     sideModal,
     problemModal,
     problemResultModal,
+    enterProblemModal,
+    problemChance,
     problemAll,
     popularProblem,
     popularProblemNumber,
@@ -120,11 +129,16 @@ const mapDispatchToProps = dispatch => {
     },
     onLoadProblem() {
       onLoadProblemAPI(dispatch);
+    },
+    onClickNoticeProblemModal() {
+      dispatch({
+        type: "CLOSE_NOTICEMODAL"
+      });
+    },
+    onLoadNoticeInfo(name, chance) {
+      onLoadNoticeInfo(dispatch, name, chance);
     }
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
