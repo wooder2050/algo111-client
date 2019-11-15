@@ -70,8 +70,7 @@ npm start
 * Unit Test (Jest)
 * Component Unit Test (Jest, Enzyme)
 * cypress E2E test 
-<img src="https://algo111.s3.ap-northeast-2.amazonaws.com/%EB%85%B9%ED%99%94_2019_11_15_22_49_51_828.gif"/>
-![cypress](https://algo111.s3.ap-northeast-2.amazonaws.com/%EB%85%B9%ED%99%94_2019_11_15_22_49_51_828.gif)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/tAtuviDDGuc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 
