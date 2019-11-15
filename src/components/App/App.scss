@@ -18,10 +18,12 @@ $color8: #ffffff;
     position: fixed;
     top: 0;
     left: 30%;
+    z-index: -1;
   }
   .loading-text {
     position: fixed;
     top: 70%;
     left: 30%;
+    z-index: -1;
   }
 }
