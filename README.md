@@ -1,68 +1,93 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# ALGO111
 
-## Available Scripts
 
-In the project directory, you can run:
+## Introduction
 
-### `yarn start`
+ALGO111는 '하루 한 시간 한 문제' 알고리즘 문제를 푸는 웹 어플리케이션입니다.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Content
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+* Installation
+* Features
+* Skills
+* Tests
+* Deployment & Continuous Integration
+* Project management
+* Things To Do
 
-### `yarn test`
+## Installation
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Client
+<pre>
+git clone https://github.com/wooder2050/algo111-client.git
+cd algo111-client
+npm install
+npm start
+</pre>
 
-### `yarn build`
+### Client
+<pre>
+git clone https://github.com/wooder2050/algo111-server.git
+cd algo111-server
+npm install
+npm start
+</pre>
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Features
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+* auth0를 이용한 소셜 로그인 구현(구글)
+* JSON Web Token Authentication 
+* CodeMirror를 이용해서 코드 작성 기능 구현
+* 작성된 JavaScript 코드 채점 기능
+* 문제 풀이 시간과 시도 횟수 제한 기능
+* 레벨 별 알고리즘 문제 접근 기능
+* 풀이한 코드 다시 보기 가능
+* 유저 랭킹 Top 10 보기 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Skills
 
-### `yarn eject`
+### Client
+* ES2015+
+* React
+* React Router
+* Redux 
+* auth0 Authentication
+* Sass
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Server
+* Node.js
+* Express
+* ES2015+
+* VM (Executing JavaScript)
+* MongoDB
+* Mongoose
+* Atlas
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Test
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* PropTypes
+* Unit Test (Jest)
+* Component Unit Test (Jest, Enzyme)
+* cypress E2E test 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+[![Video Label](http://img.youtube.com/vi/tAtuviDDGuc/0.jpg)](https://www.youtube.com/watch?v=tAtuviDDGuc)
 
-## Learn More
+## Deployment & Continuous Integration
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Client
+* Netlify 를 통해 배포 자동화
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Server
+* AWS Elastic beanstalk를 통해 서비스 배포
+* CircleCI를 통한 배포 자동화
 
-### Code Splitting
+## Project management
+* Git, Github
+* Trello를 이용한 일정관리
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Things To Do
+* 알고리즘 시간복잡도와 공간복잡도 측정
+* 한 문제에 제출한 코드 히스토리 만들기
+* 문제 해결한 유저끼리 정답을 공유하는 기능
+* 문제 만들기 기능 
 
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
