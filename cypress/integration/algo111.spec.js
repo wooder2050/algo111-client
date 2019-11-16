@@ -1,7 +1,7 @@
 describe("My First Test", function() {
   it("Visits the kitchen sink", function() {
     cy.visit("http://localhost:3000/");
-    cy.screenshot();
+    // cy.screenshot();
     cy.viewport(1200, 1000);
     window.localStorage.setItem(
       "id_token",
