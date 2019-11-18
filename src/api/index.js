@@ -189,7 +189,7 @@ export const onLoadNoticeInfo = (dispatch,name, chance) => {
 
 export const reloadhomeAPI = (dispatch, name) => {
   return new Promise(() => {
-    fetch(`http://localhost:5000/users/reload`, {
+    fetch(`https://api.algo111.online/users/reload`, {
       method: "POST",
       headers: {
         Accept: "application/json",
