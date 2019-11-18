@@ -1,6 +1,6 @@
 export const loginAPI = (dispatch, userInfo) => {
   return new Promise(() => {
-    fetch("https://api.Server-env.dj9xkmkabw.ap-northeast-2.elasticbeanstalk.com/users", {
+    fetch("https://api.algo111.online/users", {
     // fetch("http://localhost:5000/users", {
       method: "POST",
       headers: {
@@ -27,7 +27,7 @@ export const loginAPI = (dispatch, userInfo) => {
 
 export const checkCodeAPI = (dispatch, code, level, stage) => {
   return new Promise(() => {
-    fetch("https://api.Server-env.dj9xkmkabw.ap-northeast-2.elasticbeanstalk.com/problems/check", {
+    fetch("https://api.algo111.online/problems/check", {
       // fetch("http://localhost:5000/problems/check", {
       method: "POST",
       headers: {
@@ -57,7 +57,7 @@ export const checkCodeAPI = (dispatch, code, level, stage) => {
 
 export const scoreCodeAPI = (dispatch, code, level, stage, time, userName) => {
   return new Promise(() => {
-    fetch("https://api.Server-env.dj9xkmkabw.ap-northeast-2.elasticbeanstalk.com/problems/score", {
+    fetch("https://api.algo111.online/problems/score", {
       // fetch("http://localhost:5000/problems/score", {
       method: "POST",
       headers: {
@@ -89,7 +89,7 @@ export const scoreCodeAPI = (dispatch, code, level, stage, time, userName) => {
 
 export const problemOnLoadAPI = (dispatch, level, stage) => {
   return new Promise(() => {
-    fetch(`https://api.Server-env.dj9xkmkabw.ap-northeast-2.elasticbeanstalk.com/problems/${level}/${stage}`, {
+    fetch(`https://api.algo111.online/problems/${level}/${stage}`, {
       // fetch(`http://localhost:5000/problems/${level}/${stage}`, {
       method: "GET",
       headers: {
@@ -113,7 +113,7 @@ export const problemOnLoadAPI = (dispatch, level, stage) => {
 
 export const endTodayModalAPI = (dispatch, name) => {
   return new Promise(() => {
-    fetch(`https://api.Server-env.dj9xkmkabw.ap-northeast-2.elasticbeanstalk.com/users/date`, {
+    fetch(`https://api.algo111.online/users/date`, {
       // fetch(`http://localhost:5000/problems/users/date`, {
       method: "POST",
       headers: {
@@ -136,7 +136,7 @@ export const endTodayModalAPI = (dispatch, name) => {
 
 export const onLoadProblemAPI = dispatch => {
   return new Promise(() => {
-    fetch(`https://api.Server-env.dj9xkmkabw.ap-northeast-2.elasticbeanstalk.com/problems`, {
+    fetch(`https://api.algo111.online/problems`, {
       // fetch(`http://localhost:5000/problems`, {
       method: "GET",
       headers: {
@@ -161,7 +161,7 @@ export const onLoadProblemAPI = dispatch => {
 
 export const onLoadNoticeInfo = (dispatch,name, chance) => {
   return new Promise(() => {
-    fetch(`https://api.Server-env.dj9xkmkabw.ap-northeast-2.elasticbeanstalk.com/users/chance`, {
+    fetch(`https://api.algo111.online/users/chance`, {
     // fetch(`http://localhost:5000/users/chance`, {
       method: "POST",
       headers: {
