@@ -6,7 +6,7 @@ export default class Auth {
     domain: "jaeyoung.auth0.com",
     audience: "https://jaeyoung.auth0.com/userinfo",
     clientID: "ZyFfnFhkPTAmvjMIoUjtuJrMHNqc10qn",
-    redirectUri: "https://www.algo111.online/callback",
+    redirectUri: "http://localhost:3000/callback",
     responseType: "token id_token",
     scope: "openid profile"
   });
@@ -64,7 +64,7 @@ export default class Auth {
     localStorage.removeItem("id_token");
     localStorage.removeItem("expires_at");
     this.auth0.logout({
-      returnTo: "https://www.algo111.online",
+      returnTo: "http://localhost:3000",
       clientID: "ZyFfnFhkPTAmvjMIoUjtuJrMHNqc10qn"
     });
   }

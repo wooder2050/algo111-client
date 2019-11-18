@@ -7,7 +7,8 @@ import {
   scoreCodeAPI,
   endTodayModalAPI,
   onLoadProblemAPI,
-  onLoadNoticeInfo
+  onLoadNoticeInfo,
+  reloadhomeAPI
 } from "../api";
 import Auth from "../components/Auth";
 
@@ -112,6 +113,7 @@ const mapDispatchToProps = dispatch => {
       dispatch({
         type: "CLOSE_RESULTMODAL"
       });
+      // reloadhomeAPI(dispatch,name);
     },
     returnResultModal() {
       dispatch({

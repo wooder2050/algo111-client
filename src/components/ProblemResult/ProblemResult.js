@@ -28,6 +28,7 @@ class ProblemResult extends Component {
     this.initializeEditor(this.props.finalCode);
   }
   render() {
+    console.log(this.props);
     return (
       <div className="problem-result-wrapper">
         <div className="problem-result-box">

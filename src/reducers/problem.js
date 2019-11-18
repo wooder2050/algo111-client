@@ -49,7 +49,6 @@ function problemReducers(state = initialState, action) {
         }
       );
     case "SET_STORGETIME":
-        console.log("SET_STORGETIME", action);
       return Object.assign(
         { ...state },
         {

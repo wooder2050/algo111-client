@@ -1,6 +1,6 @@
 export const loginAPI = (dispatch, userInfo) => {
   return new Promise(() => {
-    fetch("http://Server-env.dj9xkmkabw.ap-northeast-2.elasticbeanstalk.com/users", {
+    fetch("https://api.Server-env.dj9xkmkabw.ap-northeast-2.elasticbeanstalk.com/users", {
     // fetch("http://localhost:5000/users", {
       method: "POST",
       headers: {
@@ -27,7 +27,7 @@ export const loginAPI = (dispatch, userInfo) => {
 
 export const checkCodeAPI = (dispatch, code, level, stage) => {
   return new Promise(() => {
-    fetch("http://Server-env.dj9xkmkabw.ap-northeast-2.elasticbeanstalk.com/problems/check", {
+    fetch("https://api.Server-env.dj9xkmkabw.ap-northeast-2.elasticbeanstalk.com/problems/check", {
       // fetch("http://localhost:5000/problems/check", {
       method: "POST",
       headers: {
@@ -57,7 +57,7 @@ export const checkCodeAPI = (dispatch, code, level, stage) => {
 
 export const scoreCodeAPI = (dispatch, code, level, stage, time, userName) => {
   return new Promise(() => {
-    fetch("http://Server-env.dj9xkmkabw.ap-northeast-2.elasticbeanstalk.com/problems/score", {
+    fetch("https://api.Server-env.dj9xkmkabw.ap-northeast-2.elasticbeanstalk.com/problems/score", {
       // fetch("http://localhost:5000/problems/score", {
       method: "POST",
       headers: {
@@ -89,7 +89,7 @@ export const scoreCodeAPI = (dispatch, code, level, stage, time, userName) => {
 
 export const problemOnLoadAPI = (dispatch, level, stage) => {
   return new Promise(() => {
-    fetch(`http://Server-env.dj9xkmkabw.ap-northeast-2.elasticbeanstalk.com/problems/${level}/${stage}`, {
+    fetch(`https://api.Server-env.dj9xkmkabw.ap-northeast-2.elasticbeanstalk.com/problems/${level}/${stage}`, {
       // fetch(`http://localhost:5000/problems/${level}/${stage}`, {
       method: "GET",
       headers: {
@@ -113,7 +113,7 @@ export const problemOnLoadAPI = (dispatch, level, stage) => {
 
 export const endTodayModalAPI = (dispatch, name) => {
   return new Promise(() => {
-    fetch(`http://Server-env.dj9xkmkabw.ap-northeast-2.elasticbeanstalk.com/users/date`, {
+    fetch(`https://api.Server-env.dj9xkmkabw.ap-northeast-2.elasticbeanstalk.com/users/date`, {
       // fetch(`http://localhost:5000/problems/users/date`, {
       method: "POST",
       headers: {
@@ -136,7 +136,7 @@ export const endTodayModalAPI = (dispatch, name) => {
 
 export const onLoadProblemAPI = dispatch => {
   return new Promise(() => {
-    fetch(`http://Server-env.dj9xkmkabw.ap-northeast-2.elasticbeanstalk.com/problems`, {
+    fetch(`https://api.Server-env.dj9xkmkabw.ap-northeast-2.elasticbeanstalk.com/problems`, {
       // fetch(`http://localhost:5000/problems`, {
       method: "GET",
       headers: {
@@ -161,7 +161,7 @@ export const onLoadProblemAPI = dispatch => {
 
 export const onLoadNoticeInfo = (dispatch,name, chance) => {
   return new Promise(() => {
-    fetch(`http://Server-env.dj9xkmkabw.ap-northeast-2.elasticbeanstalk.com/users/chance`, {
+    fetch(`https://api.Server-env.dj9xkmkabw.ap-northeast-2.elasticbeanstalk.com/users/chance`, {
     // fetch(`http://localhost:5000/users/chance`, {
       method: "POST",
       headers: {
@@ -183,6 +183,32 @@ export const onLoadNoticeInfo = (dispatch,name, chance) => {
         type: "ONLOAD_NOTICEINFO",
         responseJson
       })
+      });
+  });
+};
+
+export const reloadhomeAPI = (dispatch, name) => {
+  return new Promise(() => {
+    fetch(`http://localhost:5000/users/reload`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Credentials": true
+      },
+      body: JSON.stringify({
+        name : name
+      })
+    })
+      .then(response => {
+        if (response.status === 200) return response.json();
+        throw new Error("failed to authenticate user");
+      })
+      .then(responseJson => {
+        dispatch({
+          type: "LOGIN_SUCCESS",
+          responseJson
+        });
       });
   });
 };

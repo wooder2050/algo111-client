@@ -14,8 +14,10 @@ import loading from "../../image/loading.gif";
 
 class App extends Component {
   componentDidMount() {
+    console.log(this.props);
+    var user_info;
     if (localStorage.getItem("id_token")) {
-      let user_info = jwtDecode(localStorage.getItem("id_token"));
+      user_info = jwtDecode(localStorage.getItem("id_token"));
       this.props.onLoad(user_info);
     }
   }
@@ -131,6 +133,7 @@ class App extends Component {
               closeResultModal={this.props.closeResultModal}
               returnResultModal={this.props.returnResultModal}
               btnText={this.props.btnText}
+              name={this.props.userName}
             />
           )}
         </Route>
