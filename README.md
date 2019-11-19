@@ -11,14 +11,14 @@ ALGO111는 '하루 한 시간 한 문제' 알고리즘 문제를 푸는 웹 어�
 
 ## Content
 
-* Requirements
-* Installation
-* Features
-* Skills
-* Tests
-* Deployment & Continuous Integration
-* Project management
-* Things To Do
+* [Requirements](##Requirements)
+* [Installation](##Installation)
+* [Features](##Features)
+* [Skills](##Skills)
+* [Tests](##Tests)
+* [Deployment/Continuous-Integration](##Deployment/Continuous-Integration)
+* [Project-management](##Project-management)
+* [Things-To-Do](##Things-To-Do)
 
 ## Requirements
 * 1024px 이상의 큰 브라우저 환경에서 실행해야 합니다.
@@ -82,7 +82,7 @@ npm start
 
 [![Video Label](http://img.youtube.com/vi/tAtuviDDGuc/0.jpg)](https://www.youtube.com/watch?v=tAtuviDDGuc)
 
-## Deployment & Continuous Integration
+## Deployment/Continuous-Integration
 
 ### Client
 * Netlify 를 통해 배포 자동화
@@ -91,7 +91,7 @@ npm start
 * AWS Elastic beanstalk를 통해 서비스 배포
 * CircleCI를 통한 배포 자동화
 
-## Project management
+## Project-management
 * Git, Github
 * Trello를 이용한 일정관리
 
@@ -103,7 +103,7 @@ npm start
 * Client는 Netlify를 통해 배포를 하고 Server는 AWS Elastic beanstalk와 CircleCI를 통해서 배포하였습니다. 배포할 때 http와 https에 대한 이해 부족으로 인해 많은 어려움을 겪었습니다. 도메인을 구해서 Client 주소를 https로 변경하였고 서버 또한 도메인을 구매한 서비스에서 "api."를 추가한 url를 설정하여 배포에 성공하였습니다. http와 aws 배포 환경에 대한 이해를 더 높이고 싶습니다.
 
 
-## Things To Do
+## Things-To-Do
 * 알고리즘 시간복잡도와 공간복잡도 측정
 * 한 문제에 제출한 코드 히스토리 만들기
 * 문제 해결한 유저끼리 정답을 공유하는 기능
