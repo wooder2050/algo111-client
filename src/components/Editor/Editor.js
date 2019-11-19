@@ -100,7 +100,7 @@ class Editor extends Component {
     var secondsTime = timeArray[2];
     return (
       <>
-        {time > 10 ? (
+        {time > 3600 ? (
           <div className="end-modal">
             <div className="end-modal-wrapper">
               <p className="end-modal-main-text">
