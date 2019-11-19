@@ -16,7 +16,7 @@ ALGO111는 '하루 한 시간 한 문제' 알고리즘 문제를 푸는 웹 어�
 * [Features](#Features)
 * [Skills](#Skills)
 * [Tests](#Tests)
-* [Deployment/Continuous-Integration](#Deployment/Continuous-Integration)
+* [Deployment/Continuous-Integratio](#Deployment/Continuous-Integration)
 * [Project-management](#Project-management)
 * [Things-To-Do](#Things-To-Do)
 
