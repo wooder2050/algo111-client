@@ -1,12 +1,13 @@
 import auth0 from "auth0-js";
 import jwtDecode from "jwt-decode";
+import { AUTH0_ID, AUTH0_URL, AUTH0_CALLBACK_URL } from "../constants";
 
 export default class Auth {
   auth0 = new auth0.WebAuth({
     domain: "jaeyoung.auth0.com",
     audience: "https://jaeyoung.auth0.com/userinfo",
-    clientID: "ZyFfnFhkPTAmvjMIoUjtuJrMHNqc10qn",
-    redirectUri: "https://www.algo111.online/callback",
+    clientID: `${AUTH0_ID}`,
+    redirectUri: `${AUTH0_CALLBACK_URL}`,
     responseType: "token id_token",
     scope: "openid profile"
   });
@@ -64,8 +65,8 @@ export default class Auth {
     localStorage.removeItem("id_token");
     localStorage.removeItem("expires_at");
     this.auth0.logout({
-      returnTo: "https://www.algo111.online",
-      clientID: "ZyFfnFhkPTAmvjMIoUjtuJrMHNqc10qn"
+      returnTo: `${AUTH0_URL}`,
+      clientID: `${AUTH0_ID}`
     });
   }
 }

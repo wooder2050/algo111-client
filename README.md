@@ -36,7 +36,13 @@ npm install
 npm start
 </pre>
 
-### Client
+### Set client environment
+
+<pre>
+
+</pre>
+
+### Server
 
 <pre>
 git clone https://github.com/wooder2050/algo111-server.git
