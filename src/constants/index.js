@@ -1,5 +1,5 @@
 const localClientDomain = `http://localhost:3000`;
-const cloudClientDomain = "https://api.algo111.online";
+const cloudClientDomain = "https://www.algo111.online";
 
 const localServerDomain = `http://localhost:5000`;
 const cloudServerDomain = "https://api.algo111.online";
