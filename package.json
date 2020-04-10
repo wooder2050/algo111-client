@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "antd": "^3.25.1",
-    "auth0-js": "^9.11.3",
+    "auth0-js": "^9.13.2",
     "codemirror": "^5.49.2",
     "cypress": "^3.6.1",
     "enzyme": "^3.10.0",
